@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Loose Topics - The Suinami</title>
+        <title>Transferrable Dynamic-Fields - The Suinami book</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/mod.html" class="active"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/dangling_objects.html"><strong aria-hidden="true">1.3.</strong> Dangling Coins</a></li><li class="chapter-item expanded "><a href="../topics/vector.html"><strong aria-hidden="true">1.4.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/dynamic_vec.html"><strong aria-hidden="true">1.5.</strong> Dynamic Vectors</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/transferrable_dfs.html"><strong aria-hidden="true">2.4.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/map_reduce.html"><strong aria-hidden="true">2.5.</strong> Map-Reduce</a></li><li class="chapter-item expanded "><a href="../patterns/frozen_pub.html"><strong aria-hidden="true">2.6.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/on_chain_auth.html"><strong aria-hidden="true">2.7.</strong> On-Chain Auth</a></li><li class="chapter-item expanded "><a href="../patterns/guided_pt.html"><strong aria-hidden="true">2.8.</strong> Guided Programmable Transactions</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/00_mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/01_move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/02_events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/03_vector.html"><strong aria-hidden="true">1.3.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/04_dangling_objects.html"><strong aria-hidden="true">1.4.</strong> Dangling Coins</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/00_mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/01_wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/02_hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/03_rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/04_frozen_pub.html"><strong aria-hidden="true">2.4.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/05_transferrable_dfs.html" class="active"><strong aria-hidden="true">2.5.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/06_map_reduce.html"><strong aria-hidden="true">2.6.</strong> Map-Reduce</a></li></ol></li><li class="chapter-item expanded "><a href="../data_structures/00_mod.html"><strong aria-hidden="true">3.</strong> Advanced Data Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data_structures/01_dynamic_vec.html"><strong aria-hidden="true">3.1.</strong> Dynamic Vectors</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -141,7 +141,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">The Suinami</h1>
+                    <h1 class="menu-title">The Suinami book</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -173,16 +173,69 @@
 
                 <div id="content" class="content">
                     <main>
-                        
+                        <p>Associated readings:</p>
+<ul>
+<li><a href="https://docs.sui.io/concepts/dynamic-fields">Sui Docs: Dynamic Fields</a></li>
+</ul>
+<h1 id="transferrable-dynamic-fields"><a class="header" href="#transferrable-dynamic-fields">Transferrable Dynamic-Fields</a></h1>
+<blockquote>
+<p>In the Sui blockchain, dynamic fields are a flexible feature allowing users to add, modify, or remove fields from blockchain objects on-the-fly.</p>
+<p>These fields can be named arbitrarily and can store heterogeneous values, offering more versatility compared to fixed fields defined at the time of module publication. There are two types: 'fields' that can store any value but make wrapped objects inaccessible by external tools, and 'object fields' that must store objects but remain accessible by their ID.</p>
+</blockquote>
+<p>One challenge that dynamic fields introduce is that when we attach dynamic fields to an object UID, if for any reason we want to burn the underlying object and move the dynamic fields to another object, we would have to perform <code>2n</code> amount of <code>remove</code> and <code>add</code> operations, where <code>n</code> is the number of dynamic fields.</p>
+<p>This becomes especially hard if the dynamic fields are protected with key objects from a myriad of different packages. In words it pretty much becomes impossible to move the fields in a single programmable transaction and puts a big strain on the client side to build such transactions as the client would have to know upfront all the packages it needs to interact with.</p>
+<p>To fix for this challenge, we introduce transferrable dynamic fields by allocating the dynamic fields not to the field <code>id: UID</code> of the object but to a special field of its own:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module examples::transferrable_dfs {
+    use sui::tx_context::TxContext;
+    use sui::object::{Self, UID};
+
+    struct MyObject {
+        id: UID,
+
+        // .. other fields
+
+        /// We use this UID instead to store the dynamic fields
+        dfs: UID
+    }
+
+    // ...
+}
+<span class="boring">}</span></code></pre></pre>
+<p>In Sui Move, we cannot transfer the <code>id: UID</code> to another object, as this is forbidden. Nonetheless, we can transfer <code>UID</code> that are not themselves the <code>id</code> field of the object. We can therefore have a <code>burn</code> function that looks like this:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module examples::transferrable_dfs {
+    use sui::tx_context::TxContext;
+    use sui::object::{Self, UID};
+
+    // ..
+
+    // This function is just for illustration. In a real-world scenario
+    // it would most likely have permissions around it.
+    public fun burn(
+        obj: MyObject,
+    ): UID {
+        let MyObject { id, dfs } = obj;
+
+        object::delete(id);
+
+        dfs
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>We would then be able to move the dynamic fields to the new object.</p>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../patterns/04_frozen_pub.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../topics/move_toml.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../patterns/06_map_reduce.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -192,11 +245,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../patterns/04_frozen_pub.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../topics/move_toml.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../patterns/06_map_reduce.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

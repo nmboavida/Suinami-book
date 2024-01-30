@@ -1,11 +1,12 @@
 Associated readings:
 - [Sui Move by Example: Witness](https://examples.sui.io/patterns/witness.html)
+- [OriginByte: Delegated Witness](https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/permissions/sources/permissions/witness.move)
 
 # Delegated Witness
 
-## Intro to Witness
+> The witness pattern is a fundamental pattern in Sui Move for building a permissioning system around the types of your smart contract. A certain contract might declare an `Object<T>` which uses the witness pattern to allow for the contract that creates `T` to maintain exclusivity when generating `Object<T>`.
 
-The witness pattern is a fundamental pattern in Sui Move for building a permissioning system around the types of your smart contract. A certain contract might declare an `Object<T>` which uses the witness pattern to allow for the contract that creates `T` to maintain exclusivity when generating `Object<T>`. Let's say that in contract A declares the following type and constructor:
+Let's say that in contract A declares the following type and constructor:
 
 ```rust
 module examples::contract_a {
@@ -47,7 +48,7 @@ module examples::contract_x {
 
 Given that only `contract_b` can instantiate `TypeB`, we guarante that `Object<TypeB>` can only be created by `contract_b` even though the generic object `Object` is declared in `contract_a`.
 
-## Using the `Witness` pattern to regulate the creation of multiple types
+## Using the `Witness` pattern for multiple types
 
 The example above shows the power of the `Witness` pattern. However, this type of permissioning works when `T` has `drop`. What if we have a case in which `SomeObject<T: key + store>`? In this case, we can use a slightly different version of the witness pattern:
 

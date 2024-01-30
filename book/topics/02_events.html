@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Upgrades &amp; Deployments - The Suinami</title>
+        <title>Events - The Suinami book</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/move_toml.html" class="active"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/dangling_objects.html"><strong aria-hidden="true">1.3.</strong> Dangling Coins</a></li><li class="chapter-item expanded "><a href="../topics/vector.html"><strong aria-hidden="true">1.4.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/dynamic_vec.html"><strong aria-hidden="true">1.5.</strong> Dynamic Vectors</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/transferrable_dfs.html"><strong aria-hidden="true">2.4.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/map_reduce.html"><strong aria-hidden="true">2.5.</strong> Map-Reduce</a></li><li class="chapter-item expanded "><a href="../patterns/frozen_pub.html"><strong aria-hidden="true">2.6.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/on_chain_auth.html"><strong aria-hidden="true">2.7.</strong> On-Chain Auth</a></li><li class="chapter-item expanded "><a href="../patterns/guided_pt.html"><strong aria-hidden="true">2.8.</strong> Guided Programmable Transactions</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/00_mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/01_move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/02_events.html" class="active"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/03_vector.html"><strong aria-hidden="true">1.3.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/04_dangling_objects.html"><strong aria-hidden="true">1.4.</strong> Dangling Coins</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/00_mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/01_wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/02_hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/03_rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/04_frozen_pub.html"><strong aria-hidden="true">2.4.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/05_transferrable_dfs.html"><strong aria-hidden="true">2.5.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/06_map_reduce.html"><strong aria-hidden="true">2.6.</strong> Map-Reduce</a></li></ol></li><li class="chapter-item expanded "><a href="../data_structures/00_mod.html"><strong aria-hidden="true">3.</strong> Advanced Data Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data_structures/01_dynamic_vec.html"><strong aria-hidden="true">3.1.</strong> Dynamic Vectors</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -141,7 +141,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">The Suinami</h1>
+                    <h1 class="menu-title">The Suinami book</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -175,74 +175,22 @@
                     <main>
                         <p>Associated readings:</p>
 <ul>
-<li><a href="https://docs.sui.io/concepts/sui-move-concepts/packages">Sui Docs: Packages</a></li>
-<li><a href="https://examples.sui.io/basics/move-toml.html">Sui Move by Example: Move.toml</a></li>
+<li><a href="https://docs.sui.io/guides/developer/sui-101/using-events">Sui Docs: Using Events</a></li>
+<li><a href="https://examples.sui.io/basics/events.html">Sui Move by Example: Events</a></li>
 </ul>
-<h1 id="deploying-a-contract"><a class="header" href="#deploying-a-contract">Deploying a contract</a></h1>
-<p>A couple of important things to keep in mind when deploying contracts.</p>
-<p>To deploy a contract you need to keep its address as <code>0x</code>:</p>
-<pre><code class="language-toml">[package]
-name = &quot;Request&quot;
-version = &quot;1.6.0&quot;
-
-[dependencies.Sui]
-git = &quot;https://github.com/MystenLabs/sui.git&quot;
-subdir = &quot;crates/sui-framework/packages/sui-framework&quot;
-# mainnet-1.15.1
-rev = &quot;08119f95e9ccdc926eae3fff8c95e50678f56aed&quot;
-
-[dependencies.Permissions]
-local = &quot;./../permissions&quot;
-
-[addresses]
-ob_request = &quot;0x&quot;
-</code></pre>
-<p>Once we have deployed the contract successfully we need to insert the package ID into the move.toml to link the codebase to the on-chain smart contract. When we deploy the contract a package ID will be generated, in our case is <code>0xe2c7a6843cb13d9549a9d2dc1c266b572ead0b4b9f090e7c3c46de2714102b43</code>. We therefore add this as the address:</p>
-<pre><code class="language-toml">[package]
-name = &quot;Request&quot;
-version = &quot;1.6.0&quot;
-
-[dependencies.Sui]
-git = &quot;https://github.com/MystenLabs/sui.git&quot;
-subdir = &quot;crates/sui-framework/packages/sui-framework&quot;
-# mainnet-1.15.1
-rev = &quot;08119f95e9ccdc926eae3fff8c95e50678f56aed&quot;
-
-[dependencies.Permissions]
-local = &quot;./../permissions&quot;
-
-[addresses]
-ob_request = &quot;0xe2c7a6843cb13d9549a9d2dc1c266b572ead0b4b9f090e7c3c46de2714102b43&quot;
-</code></pre>
-<h1 id="upgrading-a-contract"><a class="header" href="#upgrading-a-contract">Upgrading a contract</a></h1>
-<p>To upgrade the contract we have to reset the address to <code>0x</code> and invoke the call to upgrade the contract via the <a href="https://docs.sui.io/references/cli">sui-cli</a>. A new package will be generated. In our case the new version package is <code>0xadf32ebafc587cc86e1e56e59f7b17c7e8cbeb3315193be63c6f73157d4e88b9</code>. We now relink the codebase by adding the new package ID in the <code>published-at</code> field and add back the original package ID in the addresses:</p>
-<pre><code class="language-toml">[package]
-name = &quot;Request&quot;
-version = &quot;1.6.0&quot;
-published-at = &quot;0xadf32ebafc587cc86e1e56e59f7b17c7e8cbeb3315193be63c6f73157d4e88b9&quot;
-
-[dependencies.Sui]
-git = &quot;https://github.com/MystenLabs/sui.git&quot;
-subdir = &quot;crates/sui-framework/packages/sui-framework&quot;
-# mainnet-1.15.1
-rev = &quot;08119f95e9ccdc926eae3fff8c95e50678f56aed&quot;
-
-[dependencies.Permissions]
-local = &quot;./../permissions&quot;
-
-[addresses]
-ob_request = &quot;0xe2c7a6843cb13d9549a9d2dc1c266b572ead0b4b9f090e7c3c46de2714102b43&quot;
-</code></pre>
+<h1 id="events"><a class="header" href="#events">Events</a></h1>
+<p>The available sources cover the majority that there is to be known about on-chain events. An important note that we would like to cover is how events interact with package versioning. The rule that events follow is that events will be emitted from their package of origin. This means that if you use an off-chain event listener you will subscribe to the events of a smart contract by referring to its original package ID.</p>
+<p>There is a caveat nonetheless. What happens when you introduce a new event in a newer version? These events will be generated by their original package ID, however this time they do not correspond to the original smart contract package ID, but the version in which this got introduced. This can complicate matters and therefore in general we recomment developers to keep track of the event sources and describe them in their documentation.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../topics/mod.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../topics/01_move_toml.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../topics/events.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../topics/03_vector.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -252,11 +200,11 @@ ob_request = &quot;0xe2c7a6843cb13d9549a9d2dc1c266b572ead0b4b9f090e7c3c46de27141
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../topics/mod.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../topics/01_move_toml.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../topics/events.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../topics/03_vector.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

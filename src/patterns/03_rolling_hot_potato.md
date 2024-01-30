@@ -1,6 +1,7 @@
 Associated readings:
 - [Sui Docs: Programmable Transactions](https://docs.sui.io/concepts/transactions/prog-txn-blocks)
 - [Sui Move by Example: Hot Potato](https://examples.sui.io/patterns/hot-potato.html)
+- [OriginByte: Request Hot Potato](https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/request/sources/request/request.move)
 
 # Rolling Hot Potato
 
