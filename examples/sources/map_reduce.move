@@ -1,14 +1,4 @@
-# Map-Reduce
-
-Map Reduce is a pattern inspired in a Big Data pattern initially developed by the Hadoop framework and is a programming model that processes large data sets by dividing the work into two phases: the Map phase, which applies operations on individual or chunks of data, and the Reduce phase, which performs a final aggregation operation.
-
-But how does this relate to Sui?
-
-In Sui, operations on Single Writer Objects are fully parallelizable whereas operations on Shared Objects need to go through full consensus. With the Sui Map-Reduce pattern we can levage SWO transactions to add tens if not hundreds of thousands of objects to a Shared Object whilst having most transactions being parallelized. We do this by leveraging the Transferrable Dynamic Fields pattern discussed previously.
-
-Lets start with an example of two objects that represent the same abstraction, though one is private and the other one is shared:
-
-```rust
+// TODO: Add example tests
 module examples::map_reduce {
     use std::vector;
     use sui::tx_context::{Self, TxContext};
@@ -94,6 +84,3 @@ module examples::map_reduce {
         transfer::share_object(shared_warehouse);
     }
 }
-```
-
-We can now instantiate SWO warehouses in parallel calling `new_private`, add any non-fungible asset in parallel by calling `add_nfts`. This is the "Map" part in the "Map-Reduce". We then call `share_warehouse` which will burn all individual private warehouses, and aggregate all its NFTs into a shared warehouse.
