@@ -3,13 +3,12 @@ Associated readings:
 
 # Delegated Witness
 
-
 ## Intro to Witness
 
 The witness pattern is a fundamental pattern in Sui Move for building a permissioning system around the types of your smart contract. A certain contract might declare an `Object<T>` which uses the witness pattern to allow for the contract that creates `T` to maintain exclusivity when generating `Object<T>`. Let's say that in contract A declares the following type and constructor:
 
 ```rust
-module some_package_a::contract_a {
+module examples::contract_a {
     use sui::object::{Self, UID};
     use sui::tx_context::TxContext;
 
@@ -28,11 +27,11 @@ module some_package_a::contract_a {
 Contract X can then declare a Witness type such that:
 
 ```rust
-module some_package_x::contract_x {
+module examples::contract_x {
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
 
-    use some_package_a::contract_a::{Self, SomeObject};
+    use examples::contract_a;
 
     // Witness type
     struct TypeX has drop {}
@@ -53,7 +52,7 @@ Given that only `contract_b` can instantiate `TypeB`, we guarante that `Object<T
 The example above shows the power of the `Witness` pattern. However, this type of permissioning works when `T` has `drop`. What if we have a case in which `SomeObject<T: key + store>`? In this case, we can use a slightly different version of the witness pattern:
 
 ```rust
-module some_package_b::contract_b {
+module examples::contract_b {
     use sui::object::{Self, UID};
     use sui::tx_context::TxContext;
     use ob_utils::utils;
@@ -78,12 +77,12 @@ module some_package_b::contract_b {
 Now this allow us to use the our witness object to insert any object from our module with `key` and `store` in `Object<T>`:
 
 ```rust
-module some_package_y::contract_y {
+module examples::contract_y {
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
     use sui::object::{Self, UID};
 
-    use some_package_a::contract_a::{Self, SomeObject};
+    use examples::contract_b;
 
     // Witness type
     struct Witness has drop {}
@@ -177,10 +176,9 @@ public fun from_publisher<T>(publisher: &Publisher): Witness<T> {
 We can now have two contract that do:
 
 ```rust
-module some_package_c::contract_c {
+module examples::contract_c {
     use sui::object::{Self, UID};
     use sui::tx_context::TxContext;
-    use ob_utils::utils;
     use ob_permissions::witness::{Witness as DelegatedWit};
 
     struct ObjectC<T: key + store> has key, store {
@@ -189,19 +187,18 @@ module some_package_c::contract_c {
     }
 
     public fun new<T: key + store>(
-        delegated_wit: DelegatedWit<T>, obj: T, ctx: &mut TxContext
+        _delegated_wit: DelegatedWit<T>, obj: T, ctx: &mut TxContext
     ): ObjectC<T> {
         ObjectC { id: object::new(ctx), obj }
     }
 }
 
-module some_package_d::contract_d {
+module examples::contract_d {
     use sui::object::{Self, UID};
     use sui::tx_context::TxContext;
-    use ob_utils::utils;
     use ob_permissions::witness::{Witness as DelegatedWit};
 
-    use some_package_c::contract_c::{Self, Objectc};
+    use examples::contract_c::{Self, ObjectC};
 
     struct ObjectD<T: key + store> has key, store {
         id: UID,
@@ -213,7 +210,7 @@ module some_package_d::contract_d {
     ): ObjectD<T> {
         ObjectD {
             id: object::new(ctx),
-            obj_c: object_c::new(delegated_wit, obj_c, ctx)
+            obj_c: contract_c::new(delegated_wit, obj_c, ctx)
         }
     }
 }

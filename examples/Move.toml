@@ -1,0 +1,14 @@
+[package]
+name = "examples"
+version = "0.0.1"
+
+[dependencies]
+# mainnet-1.15.1
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "08119f95e9ccdc926eae3fff8c95e50678f56aed" }
+Utils = { git = "https://github.com/Origin-Byte/nft-protocol.git", subdir = "contracts/utils", rev = "657eb590396fed23595bddccf6c7a7ba34b50df5" }
+Pseudorandom = { git = "https://github.com/Origin-Byte/nft-protocol.git", subdir = "contracts/pseudorandom", rev = "657eb590396fed23595bddccf6c7a7ba34b50df5"}
+Permissions = { git = "https://github.com/Origin-Byte/nft-protocol.git", subdir = "contracts/permissions", rev = "657eb590396fed23595bddccf6c7a7ba34b50df5"}
+Request = { git = "https://github.com/Origin-Byte/nft-protocol.git", subdir = "contracts/request", rev = "657eb590396fed23595bddccf6c7a7ba34b50df5"}
+
+[addresses]
+examples = "0x0"

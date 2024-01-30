@@ -13,8 +13,8 @@
   <!-- * [Avoiding Cyclical Type imports](patterns/cyclical_type_imports.md) -->
 * [Advanced Patterns](patterns/mod.md)
   * [Delegated Witness](patterns/wit_delegated.md)
-  * [Hot Potatto Wrapper](patterns/hot_potatto_wrapper.md)
-  * [Rolling Hot Potatto](patterns/rolling_hot_potatto.md)
+  * [Hot Potato Wrapper](patterns/hot_potato_wrapper.md)
+  * [Rolling Hot Potato](patterns/rolling_hot_potato.md)
   * [Transferrable Dynamic-Fields](patterns/transferrable_dfs.md)
   * [Map-Reduce](patterns/map_reduce.md)
   * [Frozen Publisher](patterns/frozen_pub.md)
