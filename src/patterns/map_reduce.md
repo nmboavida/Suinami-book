@@ -1,5 +1,7 @@
 # Map-Reduce
 
+NOTE: This is Work-In-Progress
+
 Map Reduce is a pattern inspired in a Big Data pattern initially developed by the Hadoop framework and is a programming model that processes large data sets by dividing the work into two phases: the Map phase, which applies operations on individual or chunks of data, and the Reduce phase, which performs a final aggregation operation.
 
 But how does this relate to Sui?
