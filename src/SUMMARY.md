@@ -2,7 +2,7 @@
 
 [Introduction](intro.md)
 
-* [Advanced Topics](topics/mod.md)
+* [Loose Topics](topics/mod.md)
   * [Upgrades & Deployments](topics/move_toml.md)
   * [Events](topics/events.md)
   * [Dangling Coins](topics/dangling_objects.md)
