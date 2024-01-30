@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Guided Programmable Transactions - The Suinami</title>
+        <title>Dynamic Vectors - The Suinami book</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/dangling_objects.html"><strong aria-hidden="true">1.3.</strong> Dangling Coins</a></li><li class="chapter-item expanded "><a href="../topics/vector.html"><strong aria-hidden="true">1.4.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/dynamic_vec.html"><strong aria-hidden="true">1.5.</strong> Dynamic Vectors</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/transferrable_dfs.html"><strong aria-hidden="true">2.4.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/map_reduce.html"><strong aria-hidden="true">2.5.</strong> Map-Reduce</a></li><li class="chapter-item expanded "><a href="../patterns/frozen_pub.html"><strong aria-hidden="true">2.6.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/on_chain_auth.html"><strong aria-hidden="true">2.7.</strong> On-Chain Auth</a></li><li class="chapter-item expanded "><a href="../patterns/guided_pt.html" class="active"><strong aria-hidden="true">2.8.</strong> Guided Programmable Transactions</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/00_mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/01_move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/02_events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/03_vector.html"><strong aria-hidden="true">1.3.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/04_dangling_objects.html"><strong aria-hidden="true">1.4.</strong> Dangling Coins</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/00_mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/01_wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/02_hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/03_rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/04_frozen_pub.html"><strong aria-hidden="true">2.4.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/05_transferrable_dfs.html"><strong aria-hidden="true">2.5.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/06_map_reduce.html"><strong aria-hidden="true">2.6.</strong> Map-Reduce</a></li></ol></li><li class="chapter-item expanded "><a href="../data_structures/00_mod.html"><strong aria-hidden="true">3.</strong> Advanced Data Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data_structures/01_dynamic_vec.html" class="active"><strong aria-hidden="true">3.1.</strong> Dynamic Vectors</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -141,7 +141,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">The Suinami</h1>
+                    <h1 class="menu-title">The Suinami book</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -173,14 +173,89 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="guided-programmable-transactions"><a class="header" href="#guided-programmable-transactions">Guided Programmable Transactions</a></h1>
-<p>TODO!</p>
+                        <p>Associated readings:</p>
+<ul>
+<li><a href="https://docs.sui.io/concepts/dynamic-fields">Sui Docs: Dynamic Fields</a></li>
+<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/utils/sources/dynamic_vec.move">OriginByte Utils: Dynamic Vector</a></li>
+</ul>
+<h1 id="dynamic-vectors"><a class="header" href="#dynamic-vectors">Dynamic Vectors</a></h1>
+<p>In the Sui blockchain, dynamic fields are a flexible feature allowing users to add, modify, or remove fields from blockchain objects on-the-fly.</p>
+<p>These fields can be named arbitrarily and can store heterogeneous values, offering more versatility compared to fixed fields defined at the time of module publication. There are two types: 'fields' that can store any value but make wrapped objects inaccessible by external tools, and 'object fields' that must store objects but remain accessible by their ID.</p>
+<p>Dynamic fields are great because they serve as an abstraction for unbounded object scalability and extendibility. An example of scalability is the object type <code>TableVec</code> which allows us to create an arbitrarily long vector.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct TableVec&lt;phantom Element: store&gt; has store {
+    /// The contents of the table vector.
+    contents: Table&lt;u64, Element&gt;,
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="runtime-hit"><a class="header" href="#runtime-hit">Runtime hit</a></h2>
+<p>One trade-off when using dynamic fields to scale your objects in size is that your application will suffer a runtime hit. This is fine for most cases, but for perfomance critical applications you can use a dynamic vector from the OriginByte library:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct DynVec&lt;Element&gt; has store {
+    vec_0: vector&lt;Element&gt;,
+    vecs: UID,
+    current_chunk: u64,
+    tip_length: u64,
+    total_length: u64,
+    limit: u64,
+}
+<span class="boring">}</span></code></pre></pre>
+<p>This abstraction combines the best of both worlds, the runtime performance of static fields, and the scalability of dynamic fields. In a nutshell, <code>DynVec</code> loads the tip of the entire vector into a static field vector, allowing <code>push_back</code> and <code>pop_back</code> operations to be more perfomant. When popping an element from the vector, when the the sub-vector tip gets exhausted we load the next chunk to the static vector.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>public fun pop_back&lt;Element: store&gt;(
+    v: &amp;mut DynVec&lt;Element&gt;,
+): Element {
+    // This only occurs when it has no elements
+    assert!(v.tip_length != 0, 0);
+
+    let elem = if (v.tip_length == 1) {
+        remove_chunk(v)
+    } else {
+        pop_element_from_chunk(v)
+    };
+
+    elem
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Conversely, when we push elements to the back of the vector, when the sub-vector tip gets full, we move it to a dynamic field and instantiate a new static vector.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>public fun push_back&lt;Element: store&gt;(
+    v: &amp;mut DynVec&lt;Element&gt;,
+    elem: Element,
+) {
+    // If the tip is maxed out, create a new vector and add it there
+    if (v.tip_length == v.limit) {
+        insert_chunk(v, elem);
+    } else {
+        push_element_to_chunk(v, elem);
+    };
+}
+<span class="boring">}</span></code></pre></pre>
+<p>To create a dynamic vector you can simply call the <code>empty</code> constructor function and passing a limit which defines the capacity of each vector chunk.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Create an empty dynamic vector.
+public fun empty&lt;Element: store&gt;(limit: u64, ctx: &amp;mut TxContext): DynVec&lt;Element&gt; {
+    DynVec {
+        vec_0: vector::empty(),
+        vecs: object::new(ctx),
+        current_chunk: 0,
+        tip_length: 0,
+        total_length: 0,
+        limit,
+    }
+}
+<span class="boring">}</span></code></pre></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../patterns/on_chain_auth.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../data_structures/00_mod.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
@@ -191,7 +266,7 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../patterns/on_chain_auth.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../data_structures/00_mod.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
