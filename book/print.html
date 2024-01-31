@@ -260,29 +260,41 @@ ob_request = &quot;0xe2c7a6843cb13d9549a9d2dc1c266b572ead0b4b9f090e7c3c46de27141
 <p>This is especially problematic if the object concerned has some real-world value such as <code>Coin&lt;T&gt;</code>. take the following example:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>struct SomeObject has key, store {
-    id: UID,
-}
+</span>module examples::dangling_coin {
+    use sui::coin;
+    use sui::sui::SUI;
+    use sui::dynamic_field as df;
+    use sui::object::{Self, UID};
+    use sui::test_scenario::{Self, ctx};
 
-fun burn_obj(obj: SomeObject) {
-    let SomeObject { id } = obj;
-    object::delete(id);
-}
+    const SOME_ADDRESS: address = @0x1;
+    const USER: address = @0x2;
 
-#[test]
-fun dangling_coin() {
-    let scenario = test_scenario::begin(creator());
-    let some_obj = SomeObject {
-        id: object::new(ctx(&amp;mut scenario)),
-    };
+    struct SomeObject has key, store {
+        id: UID,
+    }
 
-    let sui_coins = coin::mint_for_testing&lt;SUI&gt;(10_000, ctx(&amp;mut scenario));
+    fun burn_obj(obj: SomeObject) {
+        let SomeObject { id } = obj;
+        object::delete(id);
+    }
 
-    df::add(&amp;mut some_obj.id, 1, sui_coins);
+    #[test]
+    fun dangling_coin() {
+        let scenario = test_scenario::begin(SOME_ADDRESS);
+        let some_obj = SomeObject {
+            id: object::new(ctx(&amp;mut scenario)),
+        };
 
-    burn_obj(some_obj);
+        let sui_coins = coin::mint_for_testing&lt;SUI&gt;(10_000, ctx(&amp;mut scenario));
 
-    test_scenario::end(scenario);
+        df::add(&amp;mut some_obj.id, 1, sui_coins);
+
+        burn_obj(some_obj);
+
+        test_scenario::end(scenario);
+    }
+
 }
 <span class="boring">}</span></code></pre></pre>
 <p>This code does in fact compile and the test passes. In other words, in this test case, 10_000 SUI coins have become unreachable. We recommend developers to always be extra cautious when burning object that have dynamic fields such that validations are put in place to prevent them from being burned in case valueable assets are held dynamically in it.</p>

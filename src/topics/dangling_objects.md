@@ -9,29 +9,41 @@ In the Sui blockchain, an object with dynamic fields can be deleted, even if tho
 This is especially problematic if the object concerned has some real-world value such as `Coin<T>`. take the following example:
 
 ```rust
-struct SomeObject has key, store {
-    id: UID,
-}
+module examples::dangling_coin {
+    use sui::coin;
+    use sui::sui::SUI;
+    use sui::dynamic_field as df;
+    use sui::object::{Self, UID};
+    use sui::test_scenario::{Self, ctx};
 
-fun burn_obj(obj: SomeObject) {
-    let SomeObject { id } = obj;
-    object::delete(id);
-}
+    const SOME_ADDRESS: address = @0x1;
+    const USER: address = @0x2;
 
-#[test]
-fun dangling_coin() {
-    let scenario = test_scenario::begin(creator());
-    let some_obj = SomeObject {
-        id: object::new(ctx(&mut scenario)),
-    };
+    struct SomeObject has key, store {
+        id: UID,
+    }
 
-    let sui_coins = coin::mint_for_testing<SUI>(10_000, ctx(&mut scenario));
+    fun burn_obj(obj: SomeObject) {
+        let SomeObject { id } = obj;
+        object::delete(id);
+    }
 
-    df::add(&mut some_obj.id, 1, sui_coins);
+    #[test]
+    fun dangling_coin() {
+        let scenario = test_scenario::begin(SOME_ADDRESS);
+        let some_obj = SomeObject {
+            id: object::new(ctx(&mut scenario)),
+        };
 
-    burn_obj(some_obj);
+        let sui_coins = coin::mint_for_testing<SUI>(10_000, ctx(&mut scenario));
 
-    test_scenario::end(scenario);
+        df::add(&mut some_obj.id, 1, sui_coins);
+
+        burn_obj(some_obj);
+
+        test_scenario::end(scenario);
+    }
+
 }
 ```
 
