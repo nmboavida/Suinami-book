@@ -12,7 +12,7 @@
   * [Hot Potato Wrapper](patterns/02_hot_potato_wrapper.md)
   * [Rolling Hot Potato](patterns/03_rolling_hot_potato.md)
   * [Frozen Publisher](patterns/04_frozen_pub.md)
-  * [Transferrable Dynamic-Fields](patterns/05_transferrable_dfs.md)
+  * [Transferable Dynamic-Fields](patterns/05_transferable_dfs.md)
   * [Map-Reduce](patterns/06_map_reduce.md)
   <!-- * [On-Chain Auth](patterns/on_chain_auth.md)
   * [Guided Programmable Transactions](patterns/guided_pt.md) -->

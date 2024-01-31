@@ -2,6 +2,7 @@ Associated readings:
 - [Sui Move by Example: Hot Potato](https://examples.sui.io/patterns/hot-potato.html)
 - [Move by Example: Publisher](https://examples.sui.io/basics/publisher.html)
 - [OriginByte: Frozen Publisher](https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/permissions/sources/permissions/frozen_publisher.move)
+- [Examples: Frozen Publisher](https://github.com/nmboavida/suinami-book/blob/main/examples/sources/frozen_pub.move)
 
 # Frozen Publisher
 

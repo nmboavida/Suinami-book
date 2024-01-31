@@ -1,5 +1,5 @@
 // TODO: Add example tests
-module examples::transferrable_dfs {
+module examples::transferable_dfs {
     use sui::tx_context::TxContext;
     use sui::object::{Self, UID};
 

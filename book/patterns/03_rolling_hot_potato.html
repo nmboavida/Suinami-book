@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/00_mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/01_move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/02_events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/03_vector.html"><strong aria-hidden="true">1.3.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/04_dangling_objects.html"><strong aria-hidden="true">1.4.</strong> Dangling Coins</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/00_mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/01_wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/02_hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/03_rolling_hot_potato.html" class="active"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/04_frozen_pub.html"><strong aria-hidden="true">2.4.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/05_transferrable_dfs.html"><strong aria-hidden="true">2.5.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/06_map_reduce.html"><strong aria-hidden="true">2.6.</strong> Map-Reduce</a></li></ol></li><li class="chapter-item expanded "><a href="../data_structures/00_mod.html"><strong aria-hidden="true">3.</strong> Advanced Data Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data_structures/01_dynamic_vec.html"><strong aria-hidden="true">3.1.</strong> Dynamic Vectors</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/00_mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/01_move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/02_events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/03_vector.html"><strong aria-hidden="true">1.3.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/04_dangling_objects.html"><strong aria-hidden="true">1.4.</strong> Dangling Coins</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/00_mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/01_wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/02_hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/03_rolling_hot_potato.html" class="active"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/04_frozen_pub.html"><strong aria-hidden="true">2.4.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/05_transferable_dfs.html"><strong aria-hidden="true">2.5.</strong> Transferable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/06_map_reduce.html"><strong aria-hidden="true">2.6.</strong> Map-Reduce</a></li></ol></li><li class="chapter-item expanded "><a href="../data_structures/00_mod.html"><strong aria-hidden="true">3.</strong> Advanced Data Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data_structures/01_dynamic_vec.html"><strong aria-hidden="true">3.1.</strong> Dynamic Vectors</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -178,10 +178,11 @@
 <li><a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks">Sui Docs: Programmable Transactions</a></li>
 <li><a href="https://examples.sui.io/patterns/hot-potato.html">Sui Move by Example: Hot Potato</a></li>
 <li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/request/sources/request/request.move">OriginByte: Request Hot Potato</a></li>
+<li><a href="https://github.com/nmboavida/suinami-book/blob/main/examples/sources/rolling_hot_potato.move">Examples: Rolling Hot Potato</a></li>
 </ul>
 <h1 id="rolling-hot-potato"><a class="header" href="#rolling-hot-potato">Rolling Hot Potato</a></h1>
-<p>As stated in the previous chapter, in Sui, a hot potato is an object without abilities, and that therefore must be consumed in the same transactional batch that is has been created in (since it does not have drop ability it must be burned by the contract that declared its type). This is a very useful pattern because it allows developers to enforce that a certain chain of programmable calls ought be executed, otherwise leading to the transaction batch failing. This pattern became extremely powerful especially since the introduction of Programmable Transactions.</p>
-<p>Following the introduction of Programmable Transactions the Rolling Hot Potato pattern as been introduced by Mysten Labs and Originbyte in collaboration throughout the development of the Kiosk.</p>
+<p>As stated in the previous chapter, in Sui, a hot potato is an object without abilities, and that therefore must be consumed in the same transactional batch that is has been created in (since it does not have drop ability it must be burned by the contract that declared its type). This is a very useful pattern because it allows developers to enforce that a certain chain of programmable calls ought to be executed, otherwise leading to the transaction batch failing. This pattern became extremely powerful especially since the introduction of Programmable Transactions.</p>
+<p>Following the introduction of Programmable Transactions the Rolling Hot Potato pattern as been introduced by Mysten Labs and Originbyte in collaboration during the development of the Kiosk.</p>
 <p>Below follows a generic implementation which seves as a way of validating that a set of actions has been taken. Since hot potatoes need to be consumed at the end of the Programmable Transactions Batch, smart contract developers can force clients to perform a particular set of actions given a genesis action.</p>
 <p>The module can be found in OriginByte <a href="https://github.com/Origin-Byte/nft-protocol/tree/main/contracts/request">Request</a> package and consists of three core objects:</p>
 <ul>
@@ -357,6 +358,22 @@ request_policy::enforce&lt;RuleC&gt;(&amp;mut policy, &amp;cap);
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
