@@ -16,3 +16,7 @@ In the creation of this guide for the Sui Move programming language, significant
 I extend my sincere thanks to [Porkbrain](https://github.com/bausano) and [Suficio](https://github.com/Suficio) for their collaboration and invaluable contributions in co-developing the advanced patterns in this guide.
 
 In addition, I extend my gratitude to [Damir](https://github.com/damirka), the creator of the [Move Book](https://move-book.com/) and [Sui by Example](https://examples.sui.io/), whom we had the pleasure to work with side by side co-developing the Hot Potato Request pattern (i.e rolling hot potato) during the development of the Kiosk standard.
+
+### Current Development Stage
+
+This book is in its initial phase. Content and examples are subject to significant refinement as we further develop the foundational concepts and incorporate insights from the developer community. Its focus is on providing a thorough and up-to-date guide on advanced Sui Move topics.

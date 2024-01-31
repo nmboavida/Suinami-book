@@ -1,4 +1,4 @@
-# Advanced Patterns
+# Advanced Data Structures
 
 A list of advanced data structures in Sui Move:
 
