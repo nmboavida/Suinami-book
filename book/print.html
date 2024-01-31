@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>The Suinami</title>
+        <title>The Suinami book</title>
         <meta name="robots" content="noindex">
 
 
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="topics/mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="topics/move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="topics/events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="topics/dangling_objects.html"><strong aria-hidden="true">1.3.</strong> Dangling Coins</a></li><li class="chapter-item expanded "><a href="topics/vector.html"><strong aria-hidden="true">1.4.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="topics/dynamic_vec.html"><strong aria-hidden="true">1.5.</strong> Dynamic Vectors</a></li></ol></li><li class="chapter-item expanded "><a href="patterns/mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="patterns/wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="patterns/hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="patterns/rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="patterns/transferrable_dfs.html"><strong aria-hidden="true">2.4.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="patterns/map_reduce.html"><strong aria-hidden="true">2.5.</strong> Map-Reduce</a></li><li class="chapter-item expanded "><a href="patterns/frozen_pub.html"><strong aria-hidden="true">2.6.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="patterns/on_chain_auth.html"><strong aria-hidden="true">2.7.</strong> On-Chain Auth</a></li><li class="chapter-item expanded "><a href="patterns/guided_pt.html"><strong aria-hidden="true">2.8.</strong> Guided Programmable Transactions</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="topics/00_mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="topics/01_move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="topics/02_events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="topics/03_vector.html"><strong aria-hidden="true">1.3.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="topics/04_dangling_objects.html"><strong aria-hidden="true">1.4.</strong> Dangling Coins</a></li></ol></li><li class="chapter-item expanded "><a href="patterns/00_mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="patterns/01_wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="patterns/02_hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="patterns/03_rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="patterns/04_frozen_pub.html"><strong aria-hidden="true">2.4.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="patterns/05_transferable_dfs.html"><strong aria-hidden="true">2.5.</strong> Transferable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="patterns/06_map_reduce.html"><strong aria-hidden="true">2.6.</strong> Map-Reduce</a></li></ol></li><li class="chapter-item expanded "><a href="data_structures/00_mod.html"><strong aria-hidden="true">3.</strong> Advanced Data Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="data_structures/01_dynamic_vec.html"><strong aria-hidden="true">3.1.</strong> Dynamic Vectors</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -142,7 +142,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">The Suinami</h1>
+                    <h1 class="menu-title">The Suinami book</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -175,15 +175,29 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>This book is devoted to the Sui Move programming language,and it serves as an advanced guide, it targets developers who are looking to deepen their understanding of Sui Move, going beyond the basics to explore complex patterns, optimization techniques, and nuanced features of the language.</p>
-<p>If you are new to Sui Move we highly recommend that you go through the following resources:</p>
+<p>This book is devoted to the Sui Move programming language, and it serves as an advanced guide. It targets developers who are looking to deepen their understanding of Sui Move, going beyond the basics to explore complex patterns, optimization techniques, and nuanced features of the language.</p>
+<p>If you are new to Sui Move, we highly recommend that you go through the following resources:</p>
 <ul>
 <li><a href="https://move-book.com/">The Move Book</a></li>
 <li><a href="https://examples.sui.io/">Sui Move by Example</a></li>
 <li><a href="https://docs.sui.io/concepts/#move">Sui Docs</a></li>
 <li><a href="https://docs.sui.io/guides/developer">Sui Developer Guide</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><p>Associated readings:</p>
+<h3 id="acknowledgements-and-contributions"><a class="header" href="#acknowledgements-and-contributions">Acknowledgements and Contributions</a></h3>
+<p>In the creation of this guide for the Sui Move programming language, significant contributions have been made by two exceptional developers, without whom this book would not have been possible in its current depth and scope.</p>
+<p>I extend my sincere thanks to <a href="https://github.com/bausano">Porkbrain</a> and <a href="https://github.com/Suficio">Suficio</a> for their collaboration and invaluable contributions in co-developing the advanced patterns in this guide.</p>
+<p>In addition, I extend my gratitude to <a href="https://github.com/damirka">Damir</a>, the creator of the <a href="https://move-book.com/">Move Book</a> and <a href="https://examples.sui.io/">Sui by Example</a>, whom we had the pleasure to work with side by side co-developing the Hot Potato Request pattern (i.e rolling hot potato) during the development of the Kiosk standard.</p>
+<h3 id="current-development-stage"><a class="header" href="#current-development-stage">Current Development Stage</a></h3>
+<p>This book is in its initial phase. Content and examples are subject to significant refinement as we further develop the foundational concepts and incorporate insights from the developer community. Its focus is on providing a thorough and up-to-date guide on advanced Sui Move topics.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="loose-topics"><a class="header" href="#loose-topics">Loose topics</a></h1>
+<p>A list of loose topics:</p>
+<ul>
+<li><a href="topics/01_move_toml.html">Upgrades &amp; Deployments</a></li>
+<li><a href="topics/02_events.html">Events</a></li>
+<li><a href="topics/03_vector.html">vector[] syntax</a></li>
+<li><a href="topics/04_dangling_objects.html">Dangling Coins</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><p>Associated readings:</p>
 <ul>
 <li><a href="https://docs.sui.io/concepts/sui-move-concepts/packages">Sui Docs: Packages</a></li>
 <li><a href="https://examples.sui.io/basics/move-toml.html">Sui Move by Example: Move.toml</a></li>
@@ -251,9 +265,24 @@ ob_request = &quot;0xe2c7a6843cb13d9549a9d2dc1c266b572ead0b4b9f090e7c3c46de27141
 <h1 id="events"><a class="header" href="#events">Events</a></h1>
 <p>The available sources cover the majority that there is to be known about on-chain events. An important note that we would like to cover is how events interact with package versioning. The rule that events follow is that events will be emitted from their package of origin. This means that if you use an off-chain event listener you will subscribe to the events of a smart contract by referring to its original package ID.</p>
 <p>There is a caveat nonetheless. What happens when you introduce a new event in a newer version? These events will be generated by their original package ID, however this time they do not correspond to the original smart contract package ID, but the version in which this got introduced. This can complicate matters and therefore in general we recomment developers to keep track of the event sources and describe them in their documentation.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vector-syntax"><a class="header" href="#vector-syntax">vector[] syntax</a></h1>
+<p>Vectors are a pretty standard structure in Move. To initiate a vector you would normally write:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let my_vec = vector::empty();
+vector::append(&amp;mut my_vec, 1);
+vector::append(&amp;mut my_vec, 2);
+vector::append(&amp;mut my_vec, 3);
+<span class="boring">}</span></code></pre></pre>
+<p>To make it more ergonomic, you can use the <code>vector[]</code> syntax as follows:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let my_vec = vector[1, 2, 3];
+<span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>Associated readings:</p>
 <ul>
 <li><a href="https://docs.sui.io/concepts/dynamic-fields">Sui Docs: Dynamic Fields</a></li>
+<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/utils/sources/dynamic_vec.move">OriginByte: Dynamic Vector</a></li>
 </ul>
 <h1 id="dangling-coins"><a class="header" href="#dangling-coins">Dangling Coins</a></h1>
 <p>In the Sui blockchain, an object with dynamic fields can be deleted, even if those fields are not deleted with it. Once the object is deleted, all its dynamic fields become unreachable for future transactions, in other words they become dangling objects. This is the case no matter if these field values are equipped with the 'drop' ability or not.</p>
@@ -298,105 +327,27 @@ ob_request = &quot;0xe2c7a6843cb13d9549a9d2dc1c266b572ead0b4b9f090e7c3c46de27141
 }
 <span class="boring">}</span></code></pre></pre>
 <p>This code does in fact compile and the test passes. In other words, in this test case, 10_000 SUI coins have become unreachable. We recommend developers to always be extra cautious when burning object that have dynamic fields such that validations are put in place to prevent them from being burned in case valueable assets are held dynamically in it.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="vector-syntax"><a class="header" href="#vector-syntax">vector[] syntax</a></h1>
-<p>Vectors are a pretty standard structure in Move. To initiate a vector you would normally write:</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>let my_vec = vector::empty();
-vector::append(&amp;mut my_vec, 1);
-vector::append(&amp;mut my_vec, 2);
-vector::append(&amp;mut my_vec, 3);
-<span class="boring">}</span></code></pre></pre>
-<p>To make it more ergonomic, you can use the <code>vector[]</code> syntax as follows:</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>let my_vec = vector[1, 2, 3];
-<span class="boring">}</span></code></pre></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>Associated readings:</p>
-<ul>
-<li><a href="https://docs.sui.io/concepts/dynamic-fields">Sui Docs: Dynamic Fields</a></li>
-<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/utils/sources/dynamic_vec.move">OriginByte Utils: Dynamic Vector</a></li>
-</ul>
-<h1 id="dynamic-vectors"><a class="header" href="#dynamic-vectors">Dynamic Vectors</a></h1>
-<p>In the Sui blockchain, dynamic fields are a flexible feature allowing users to add, modify, or remove fields from blockchain objects on-the-fly.</p>
-<p>These fields can be named arbitrarily and can store heterogeneous values, offering more versatility compared to fixed fields defined at the time of module publication. There are two types: 'fields' that can store any value but make wrapped objects inaccessible by external tools, and 'object fields' that must store objects but remain accessible by their ID.</p>
-<p>Dynamic fields are great because they serve as an abstraction for unbounded object scalability and extendibility. An example of scalability is the object type <code>TableVec</code> which allows us to create an arbitrarily long vector.</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>struct TableVec&lt;phantom Element: store&gt; has store {
-    /// The contents of the table vector.
-    contents: Table&lt;u64, Element&gt;,
-}
-<span class="boring">}</span></code></pre></pre>
-<h2 id="runtime-hit"><a class="header" href="#runtime-hit">Runtime hit</a></h2>
-<p>One trade-off when using dynamic fields to scale your objects in size is that your application will suffer a runtime hit. This is fine for most cases, but for perfomance critical applications you can use a dynamic vector from the OriginByte library:</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>struct DynVec&lt;Element&gt; has store {
-    vec_0: vector&lt;Element&gt;,
-    vecs: UID,
-    current_chunk: u64,
-    tip_length: u64,
-    total_length: u64,
-    limit: u64,
-}
-<span class="boring">}</span></code></pre></pre>
-<p>This abstraction combines the best of both worlds, the runtime performance of static fields, and the scalability of dynamic fields. In a nutshell, <code>DynVec</code> loads the tip of the entire vector into a static field vector, allowing <code>push_back</code> and <code>pop_back</code> operations to be more perfomant. When popping an element from the vector, when the the sub-vector tip gets exhausted we load the next chunk to the static vector.</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>public fun pop_back&lt;Element: store&gt;(
-    v: &amp;mut DynVec&lt;Element&gt;,
-): Element {
-    // This only occurs when it has no elements
-    assert!(v.tip_length != 0, 0);
-
-    let elem = if (v.tip_length == 1) {
-        remove_chunk(v)
-    } else {
-        pop_element_from_chunk(v)
-    };
-
-    elem
-}
-<span class="boring">}</span></code></pre></pre>
-<p>Conversely, when we push elements to the back of the vector, when the sub-vector tip gets full, we move it to a dynamic field and instantiate a new static vector.</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>public fun push_back&lt;Element: store&gt;(
-    v: &amp;mut DynVec&lt;Element&gt;,
-    elem: Element,
-) {
-    // If the tip is maxed out, create a new vector and add it there
-    if (v.tip_length == v.limit) {
-        insert_chunk(v, elem);
-    } else {
-        push_element_to_chunk(v, elem);
-    };
-}
-<span class="boring">}</span></code></pre></pre>
-<p>To create a dynamic vector you can simply call the <code>empty</code> constructor function and passing a limit which defines the capacity of each vector chunk.</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>/// Create an empty dynamic vector.
-public fun empty&lt;Element: store&gt;(limit: u64, ctx: &amp;mut TxContext): DynVec&lt;Element&gt; {
-    DynVec {
-        vec_0: vector::empty(),
-        vecs: object::new(ctx),
-        current_chunk: 0,
-        tip_length: 0,
-        total_length: 0,
-        limit,
-    }
-}
-<span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-patterns"><a class="header" href="#advanced-patterns">Advanced Patterns</a></h1>
+<p>A list of advanced patterns in Sui Move:</p>
+<ul>
+<li><a href="patterns/01_wit_delegated.html">Delegated Witness</a></li>
+<li><a href="patterns/02_hot_potato_wrapper.html">Hot Potato Wrapper</a></li>
+<li><a href="patterns/03_rolling_hot_potato.html">Rolling Hot Potato</a></li>
+<li><a href="patterns/04_frozen_pub.html">Frozen Publisher</a></li>
+<li><a href="patterns/05_transferable_dfs.html">Transferable Dynamic-Fields</a></li>
+<li><a href="patterns/06_map_reduce.html">Map-Reduce</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><p>Associated readings:</p>
 <ul>
 <li><a href="https://examples.sui.io/patterns/witness.html">Sui Move by Example: Witness</a></li>
+<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/permissions/sources/permissions/witness.move">OriginByte: Delegated Witness</a></li>
+<li><a href="https://github.com/nmboavida/suinami-book/blob/main/examples/sources/delegated_wit.move">Examples: Delegated Witness</a></li>
 </ul>
 <h1 id="delegated-witness"><a class="header" href="#delegated-witness">Delegated Witness</a></h1>
-<h2 id="intro-to-witness"><a class="header" href="#intro-to-witness">Intro to Witness</a></h2>
-<p>The witness pattern is a fundamental pattern in Sui Move for building a permissioning system around the types of your smart contract. A certain contract might declare an <code>Object&lt;T&gt;</code> which uses the witness pattern to allow for the contract that creates <code>T</code> to maintain exclusivity when generating <code>Object&lt;T&gt;</code>. Let's say that in contract A declares the following type and constructor:</p>
+<blockquote>
+<p>The witness pattern is a fundamental pattern in Sui Move for building a permissioning system around the types of your smart contract. A certain contract might declare an <code>Object&lt;T&gt;</code> which uses the witness pattern to allow for the contract that creates <code>T</code> to maintain exclusivity when generating <code>Object&lt;T&gt;</code>.</p>
+</blockquote>
+<p>Let's say that in contract A declares the following type and constructor:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>module examples::contract_a {
@@ -435,7 +386,7 @@ public fun empty&lt;Element: store&gt;(limit: u64, ctx: &amp;mut TxContext): Dyn
 }
 <span class="boring">}</span></code></pre></pre>
 <p>Given that only <code>contract_b</code> can instantiate <code>TypeB</code>, we guarante that <code>Object&lt;TypeB&gt;</code> can only be created by <code>contract_b</code> even though the generic object <code>Object</code> is declared in <code>contract_a</code>.</p>
-<h2 id="using-the-witness-pattern-to-regulate-the-creation-of-multiple-types"><a class="header" href="#using-the-witness-pattern-to-regulate-the-creation-of-multiple-types">Using the <code>Witness</code> pattern to regulate the creation of multiple types</a></h2>
+<h2 id="using-the-witness-pattern-for-multiple-types"><a class="header" href="#using-the-witness-pattern-for-multiple-types">Using the <code>Witness</code> pattern for multiple types</a></h2>
 <p>The example above shows the power of the <code>Witness</code> pattern. However, this type of permissioning works when <code>T</code> has <code>drop</code>. What if we have a case in which <code>SomeObject&lt;T: key + store&gt;</code>? In this case, we can use a slightly different version of the witness pattern:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -526,8 +477,8 @@ public fun get_package_module_type_raw(t: String): (String, String, String) {
 <p>The delegated witness functions as an hybrid between the <code>Witness</code> and the <code>Publisher</code> pattern with the addition that it provides a <code>WitnessGenerator</code> which allows for the witness creation to be delegated to other smart contracts/objects defined in modules other than the creator of <code>T</code>.</p>
 <p>In a nutshell, the differences between a Delegated-Witness and a typical Witness are:</p>
 <ul>
-<li>Deletaged-Witness has copy and it can therefore be easily propagated accross a stack of function calls;</li>
-<li>Deletaged-Witness is typed, and this in conjunction with the copy ability allows for the reduction of type-reflected assertions that are required to be perfomed accross the call stack</li>
+<li>Delegated-Witness has copy and it can therefore be easily propagated accross a stack of function calls;</li>
+<li>Delegated-Witness is typed, and this in conjunction with the copy ability allows for the reduction of type-reflected assertions that are required to be perfomed accross the call stack</li>
 <li>A Delegated-Witness can be created by <code>Witness {}</code>, so like the witness its access can be designed by the smart contract that defines <code>T</code>;</li>
 <li>It can also be created directly through the Publisher object;</li>
 <li>It can be generated by a generator object <code>WitnessGenerator&lt;T&gt;</code> which has store ability, therefore allowing for witness-creation process to be more flexibly delegated.</li>
@@ -603,9 +554,10 @@ module examples::contract_d {
 <ul>
 <li><a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks">Sui Docs: Programmable Transactions</a></li>
 <li><a href="https://examples.sui.io/patterns/hot-potato.html">Sui Move by Example: Hot Potato</a></li>
+<li><a href="https://github.com/nmboavida/suinami-book/blob/main/examples/sources/hot_potato_wrapper.move">Examples: Hot Potato Wrapper</a></li>
 </ul>
 <h1 id="hot-potato-wrapper"><a class="header" href="#hot-potato-wrapper">Hot Potato Wrapper</a></h1>
-<p>In Sui, a hot potato is an object without abilities, and that therefore must be consumed in the same transactional batch that is has been created in (since it does not have <code>drop</code> ability it must be burned by the contract that declared its type). This is a very useful pattern because it allows developers to enforce that a certain chain of programmable calls ought be executed, otherwise leading to the transaction batch failing. This pattern became extremely powerful especially since the introduction of Programmable Transactions.</p>
+<p>In Sui, a hot potato is an object without abilities, and that therefore must be consumed in the same transactional batch that is has been created in (since it does not have <code>drop</code> ability it must be burned by the contract that declared its type). This is a very useful pattern because it allows developers to enforce that a certain chain of programmable calls ought to be executed, otherwise leading to the transaction batch failing. This pattern became extremely powerful especially since the introduction of Programmable Transactions.</p>
 <p>Hot Potatoes are composable, which means that you can wrap them in other Hot Potatoes:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span>
@@ -651,10 +603,12 @@ module examples::contract_d {
 <ul>
 <li><a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks">Sui Docs: Programmable Transactions</a></li>
 <li><a href="https://examples.sui.io/patterns/hot-potato.html">Sui Move by Example: Hot Potato</a></li>
+<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/request/sources/request/request.move">OriginByte: Request Hot Potato</a></li>
+<li><a href="https://github.com/nmboavida/suinami-book/blob/main/examples/sources/rolling_hot_potato.move">Examples: Rolling Hot Potato</a></li>
 </ul>
 <h1 id="rolling-hot-potato"><a class="header" href="#rolling-hot-potato">Rolling Hot Potato</a></h1>
-<p>As stated in the previous chapter, in Sui, a hot potato is an object without abilities, and that therefore must be consumed in the same transactional batch that is has been created in (since it does not have drop ability it must be burned by the contract that declared its type). This is a very useful pattern because it allows developers to enforce that a certain chain of programmable calls ought be executed, otherwise leading to the transaction batch failing. This pattern became extremely powerful especially since the introduction of Programmable Transactions.</p>
-<p>Following the introduction of Programmable Transactions the Rolling Hot Potato pattern as been introduced by Mysten Labs and Originbyte in collaboration throughout the development of the Kiosk.</p>
+<p>As stated in the previous chapter, in Sui, a hot potato is an object without abilities, and that therefore must be consumed in the same transactional batch that is has been created in (since it does not have drop ability it must be burned by the contract that declared its type). This is a very useful pattern because it allows developers to enforce that a certain chain of programmable calls ought to be executed, otherwise leading to the transaction batch failing. This pattern became extremely powerful especially since the introduction of Programmable Transactions.</p>
+<p>Following the introduction of Programmable Transactions the Rolling Hot Potato pattern as been introduced by Mysten Labs and Originbyte in collaboration during the development of the Kiosk.</p>
 <p>Below follows a generic implementation which seves as a way of validating that a set of actions has been taken. Since hot potatoes need to be consumed at the end of the Programmable Transactions Batch, smart contract developers can force clients to perform a particular set of actions given a genesis action.</p>
 <p>The module can be found in OriginByte <a href="https://github.com/Origin-Byte/nft-protocol/tree/main/contracts/request">Request</a> package and consists of three core objects:</p>
 <ul>
@@ -802,19 +756,167 @@ request_policy::enforce&lt;RuleC&gt;(&amp;mut policy, &amp;cap);
 <span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>Associated readings:</p>
 <ul>
-<li><a href="https://docs.sui.io/concepts/dynamic-fields">Sui Docs: Dynamic Fields</a></li>
+<li><a href="https://examples.sui.io/patterns/hot-potato.html">Sui Move by Example: Hot Potato</a></li>
+<li><a href="https://examples.sui.io/basics/publisher.html">Move by Example: Publisher</a></li>
+<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/permissions/sources/permissions/frozen_publisher.move">OriginByte: Frozen Publisher</a></li>
+<li><a href="https://github.com/nmboavida/suinami-book/blob/main/examples/sources/frozen_pub.move">Examples: Frozen Publisher</a></li>
 </ul>
-<h1 id="transferrable-dynamic-fields"><a class="header" href="#transferrable-dynamic-fields">Transferrable Dynamic-Fields</a></h1>
+<h1 id="frozen-publisher"><a class="header" href="#frozen-publisher">Frozen Publisher</a></h1>
+<blockquote>
+<p>The Publisher Object in Sui confers authority to the publisher, in other words, to the one deploying the contract on-chain. With it developers can create priviledged entrypoints of which only the holder of the <code>Publisher</code> object can call. The <code>Publisher</code> along with its <code>package</code> module is essentially used to verify if a type <code>T</code> is part of a module or package associated with the <code>Publisher</code> object.</p>
+</blockquote>
+<p>The <code>Publisher</code> pattern is a powerful permissioning pattern in Sui Move, and its use case can be seen in the Sui Display standard.</p>
+<blockquote>
+<p>The Sui Object Display standard functions as a template engine, facilitating the management of how an object is represented off-chain through on-chain mechanisms. This standard allows for the integration of an object's data into a template string, offering flexibility in the selection of fields to include.</p>
+</blockquote>
+<p>One challenge that arises with it however is when using wrapper types <code>Wrapper&lt;T&gt;</code>, in that it not possible for a type <code>T</code> to define its own display if its wrapped by <code>Wrapper&lt;T&gt;</code>. The is because the outer type take precedence over the inner type.</p>
+<p>We introduce the idea of a <code>FrozenPublisher</code> which can be used by the wrapper module to allow for the publisher of <code>T</code> to define its own display of <code>Wrapper&lt;T&gt;</code>. In other words it allows the publisher of the type <code>Wrapper</code> to delegate to the type <code>T</code>. This way, the inner type <code>T</code> has the necessary degrees of freedom to define its display.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module ob_permissions::frozen_publisher {
+    // ...
+
+    struct FrozenPublisher has key {
+        id: UID,
+        inner: Publisher,
+    }
+
+    // ...
+
+    public fun freeze_from_otw&lt;OTW: drop&gt;(otw: OTW, ctx: &amp;mut TxContext) {
+        public_freeze_object(new(package::claim(otw, ctx), ctx));
+    }
+
+    // ...
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Say that want to create a wrapper type <code>Wrapper&lt;T&gt;</code> which allows other types to instantiate it:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module examples::export_display {
+    use std::string;
+    use sui::display::{Self, Display};
+    use sui::object::{Self, UID};
+    use sui::tx_context::TxContext;
+    use ob_permissions::frozen_publisher::{Self, FrozenPublisher};
+    use ob_permissions::witness::{Witness as DelegatedWitness};
+
+    struct Witness has drop {}
+
+    struct Wrapper&lt;T: key + store&gt; has key, store {
+        id: UID,
+        inner: T
+    }
+
+    public fun new&lt;T: key + store&gt;(inner: T, ctx: &amp;mut TxContext): Wrapper&lt;T&gt; {
+        Wrapper { id: object::new(ctx), inner }
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>We can then add a function that lets the inner type witnesses export their inner display:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module examples::export_display {
+    // ...
+
+    // === Display standard ===
+
+    /// Creates a new `Display` with some default settings.
+    public fun new_display&lt;T: key + store&gt;(
+        _witness: DelegatedWitness&lt;T&gt;,
+        pub: &amp;FrozenPublisher,
+        ctx: &amp;mut TxContext,
+    ): Display&lt;Wrapper&lt;T&gt;&gt; {
+        let display =
+            frozen_publisher::new_display&lt;Witness, Wrapper&lt;T&gt;&gt;(Witness {}, pub, ctx);
+
+        display::add(&amp;mut display, string::utf8(b&quot;type&quot;), string::utf8(b&quot;Wrapper&quot;));
+
+        display
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>We can then create a <code>FrozenPublisher</code> and freeze it:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module examples::export_display {
+    fun init(otw: TEST_WRAPPED_DISPLAY, ctx: &amp;mut TxContext) {
+        // ...
+
+        frozen_publisher::freeze_from_otw(otw, ctx(&amp;mut scenario));
+
+        // ...
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>This allows others developers that come along and create their inner types <code>T</code> and create their display for <code>Wrapper&lt;T&gt;</code> as shown in the test code below:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test_only]
+module examples::test_wrapped_display {
+    use std::string::utf8;
+    use sui::object::UID;
+    use sui::transfer;
+    use sui::display;
+    use sui::test_scenario::{Self, ctx};
+    use ob_permissions::frozen_publisher::{Self, FrozenPublisher};
+    use ob_permissions::witness;
+
+    use examples::export_display;
+
+    // One Time Witness
+    struct TEST_WRAPPED_DISPLAY has drop {}
+
+    // Witness for authentication
+    struct Witness has drop {}
+
+    struct InnerType has key, store {
+        id: UID,
+    }
+
+    const WRAPPER_PUBLISHER_ADDR: address = @0x1;
+    const INNER_PUBLISHER_ADDR: address = @0x2;
+
+    #[test]
+    fun create_wrapped_display() {
+        let scenario = test_scenario::begin(WRAPPER_PUBLISHER_ADDR);
+
+        frozen_publisher::freeze_from_otw(TEST_WRAPPED_DISPLAY {}, ctx(&amp;mut scenario));
+
+        test_scenario::next_tx(&amp;mut scenario, INNER_PUBLISHER_ADDR);
+
+        let dw = witness::from_witness&lt;InnerType, Witness&gt;(Witness {});
+        
+        let frozen_pub = test_scenario::take_immutable&lt;FrozenPublisher&gt;(&amp;scenario);
+
+        let inner_display = export_display::new_display(dw, &amp;frozen_pub, ctx(&amp;mut scenario));
+
+        display::add(&amp;mut inner_display, utf8(b&quot;name&quot;), utf8(b&quot;InnerType&quot;));
+        display::add(&amp;mut inner_display, utf8(b&quot;description&quot;), utf8(b&quot;This is the inner display for Wrapper&lt;InnerType&gt;&quot;));
+
+        transfer::public_transfer(inner_display, INNER_PUBLISHER_ADDR);
+
+        test_scenario::return_immutable(frozen_pub);
+        test_scenario::end(scenario);
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>Associated readings:</p>
+<ul>
+<li><a href="https://docs.sui.io/concepts/dynamic-fields">Sui Docs: Dynamic Fields</a></li>
+<li><a href="https://github.com/nmboavida/suinami-book/blob/main/examples/sources/transferable_dfs.move">Examples: Transferable DFs</a></li>
+</ul>
+<h1 id="transferable-dynamic-fields"><a class="header" href="#transferable-dynamic-fields">Transferable Dynamic-Fields</a></h1>
 <blockquote>
 <p>In the Sui blockchain, dynamic fields are a flexible feature allowing users to add, modify, or remove fields from blockchain objects on-the-fly.</p>
 <p>These fields can be named arbitrarily and can store heterogeneous values, offering more versatility compared to fixed fields defined at the time of module publication. There are two types: 'fields' that can store any value but make wrapped objects inaccessible by external tools, and 'object fields' that must store objects but remain accessible by their ID.</p>
 </blockquote>
 <p>One challenge that dynamic fields introduce is that when we attach dynamic fields to an object UID, if for any reason we want to burn the underlying object and move the dynamic fields to another object, we would have to perform <code>2n</code> amount of <code>remove</code> and <code>add</code> operations, where <code>n</code> is the number of dynamic fields.</p>
 <p>This becomes especially hard if the dynamic fields are protected with key objects from a myriad of different packages. In words it pretty much becomes impossible to move the fields in a single programmable transaction and puts a big strain on the client side to build such transactions as the client would have to know upfront all the packages it needs to interact with.</p>
-<p>To fix for this challenge, we introduce transferrable dynamic fields by allocating the dynamic fields not to the field <code>id: UID</code> of the object but to a special field of its own:</p>
+<p>To fix for this challenge, we introduce transferable dynamic fields by allocating the dynamic fields not to the field <code>id: UID</code> of the object but to a special field of its own:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>module examples::transferrable_dfs {
+</span>module examples::transferable_dfs {
     use sui::tx_context::TxContext;
     use sui::object::{Self, UID};
 
@@ -833,7 +935,7 @@ request_policy::enforce&lt;RuleC&gt;(&amp;mut policy, &amp;cap);
 <p>In Sui Move, we cannot transfer the <code>id: UID</code> to another object, as this is forbidden. Nonetheless, we can transfer <code>UID</code> that are not themselves the <code>id</code> field of the object. We can therefore have a <code>burn</code> function that looks like this:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>module examples::transferrable_dfs {
+</span>module examples::transferable_dfs {
     use sui::tx_context::TxContext;
     use sui::object::{Self, UID};
 
@@ -853,10 +955,14 @@ request_policy::enforce&lt;RuleC&gt;(&amp;mut policy, &amp;cap);
 }
 <span class="boring">}</span></code></pre></pre>
 <p>We would then be able to move the dynamic fields to the new object.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="map-reduce"><a class="header" href="#map-reduce">Map-Reduce</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="patterns/05_transferable_dfs.html">Suinamic Book: Transferable DFs</a></li>
+<li><a href="https://github.com/nmboavida/suinami-book/blob/main/examples/sources/map_reduce.move">Examples: Map-Reduce</a></li>
+</ul>
+<h1 id="map-reduce"><a class="header" href="#map-reduce">Map-Reduce</a></h1>
 <p>Map Reduce is a pattern inspired in a Big Data pattern initially developed by the Hadoop framework and is a programming model that processes large data sets by dividing the work into two phases: the Map phase, which applies operations on individual or chunks of data, and the Reduce phase, which performs a final aggregation operation.</p>
 <p>But how does this relate to Sui?</p>
-<p>In Sui, operations on Single Writer Objects are fully parallelizable whereas operations on Shared Objects need to go through full consensus. With the Sui Map-Reduce pattern we can levage SWO transactions to add tens if not hundreds of thousands of objects to a Shared Object whilst having most transactions being parallelized. We do this by leveraging the Transferrable Dynamic Fields pattern discussed previously.</p>
+<p>In Sui, operations on Single Writer Objects are fully parallelizable whereas operations on Shared Objects need to go through full consensus. With the Sui Map-Reduce pattern we can levage SWO transactions to add tens if not hundreds of thousands of objects to a Shared Object whilst having most transactions being parallelized. We do this by leveraging the Transferable Dynamic Fields pattern discussed previously.</p>
 <p>Lets start with an example of two objects that represent the same abstraction, though one is private and the other one is shared:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -947,12 +1053,88 @@ request_policy::enforce&lt;RuleC&gt;(&amp;mut policy, &amp;cap);
 }
 <span class="boring">}</span></code></pre></pre>
 <p>We can now instantiate SWO warehouses in parallel calling <code>new_private</code>, add any non-fungible asset in parallel by calling <code>add_nfts</code>. This is the &quot;Map&quot; part in the &quot;Map-Reduce&quot;. We then call <code>share_warehouse</code> which will burn all individual private warehouses, and aggregate all its NFTs into a shared warehouse.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="frozen-publisher"><a class="header" href="#frozen-publisher">Frozen Publisher</a></h1>
-<p>TODO!</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="on-chain-auth"><a class="header" href="#on-chain-auth">On-Chain Auth</a></h1>
-<p>TODO!</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="guided-programmable-transactions"><a class="header" href="#guided-programmable-transactions">Guided Programmable Transactions</a></h1>
-<p>TODO!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-data-structures"><a class="header" href="#advanced-data-structures">Advanced Data Structures</a></h1>
+<p>A list of advanced data structures in Sui Move:</p>
+<ul>
+<li><a href="data_structures/01_dynamic_vec.html">Dynamic Vectors</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><p>Associated readings:</p>
+<ul>
+<li><a href="https://docs.sui.io/concepts/dynamic-fields">Sui Docs: Dynamic Fields</a></li>
+<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/utils/sources/dynamic_vec.move">OriginByte Utils: Dynamic Vector</a></li>
+</ul>
+<h1 id="dynamic-vectors"><a class="header" href="#dynamic-vectors">Dynamic Vectors</a></h1>
+<p>In the Sui blockchain, dynamic fields are a flexible feature allowing users to add, modify, or remove fields from blockchain objects on-the-fly.</p>
+<p>These fields can be named arbitrarily and can store heterogeneous values, offering more versatility compared to fixed fields defined at the time of module publication. There are two types: 'fields' that can store any value but make wrapped objects inaccessible by external tools, and 'object fields' that must store objects but remain accessible by their ID.</p>
+<p>Dynamic fields are great because they serve as an abstraction for unbounded object scalability and extendibility. An example of scalability is the object type <code>TableVec</code> which allows us to create an arbitrarily long vector.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct TableVec&lt;phantom Element: store&gt; has store {
+    /// The contents of the table vector.
+    contents: Table&lt;u64, Element&gt;,
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="runtime-hit"><a class="header" href="#runtime-hit">Runtime hit</a></h2>
+<p>One trade-off when using dynamic fields to scale your objects in size is that your application will suffer a runtime hit. This is fine for most cases, but for perfomance critical applications you can use a dynamic vector from the OriginByte library:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct DynVec&lt;Element&gt; has store {
+    vec_0: vector&lt;Element&gt;,
+    vecs: UID,
+    current_chunk: u64,
+    tip_length: u64,
+    total_length: u64,
+    limit: u64,
+}
+<span class="boring">}</span></code></pre></pre>
+<p>This abstraction combines the best of both worlds, the runtime performance of static fields, and the scalability of dynamic fields. In a nutshell, <code>DynVec</code> loads the tip of the entire vector into a static field vector, allowing <code>push_back</code> and <code>pop_back</code> operations to be more perfomant. When popping an element from the vector, when the the sub-vector tip gets exhausted we load the next chunk to the static vector.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>public fun pop_back&lt;Element: store&gt;(
+    v: &amp;mut DynVec&lt;Element&gt;,
+): Element {
+    // This only occurs when it has no elements
+    assert!(v.tip_length != 0, 0);
+
+    let elem = if (v.tip_length == 1) {
+        remove_chunk(v)
+    } else {
+        pop_element_from_chunk(v)
+    };
+
+    elem
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Conversely, when we push elements to the back of the vector, when the sub-vector tip gets full, we move it to a dynamic field and instantiate a new static vector.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>public fun push_back&lt;Element: store&gt;(
+    v: &amp;mut DynVec&lt;Element&gt;,
+    elem: Element,
+) {
+    // If the tip is maxed out, create a new vector and add it there
+    if (v.tip_length == v.limit) {
+        insert_chunk(v, elem);
+    } else {
+        push_element_to_chunk(v, elem);
+    };
+}
+<span class="boring">}</span></code></pre></pre>
+<p>To create a dynamic vector you can simply call the <code>empty</code> constructor function and passing a limit which defines the capacity of each vector chunk.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// Create an empty dynamic vector.
+public fun empty&lt;Element: store&gt;(limit: u64, ctx: &amp;mut TxContext): DynVec&lt;Element&gt; {
+    DynVec {
+        vec_0: vector::empty(),
+        vecs: object::new(ctx),
+        current_chunk: 0,
+        tip_length: 0,
+        total_length: 0,
+        limit,
+    }
+}
+<span class="boring">}</span></code></pre></pre>
 
                     </main>
 

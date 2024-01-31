@@ -1,5 +1,6 @@
 Associated readings:
 - [Sui Docs: Dynamic Fields](https://docs.sui.io/concepts/dynamic-fields)
+- [OriginByte: Dynamic Vector](https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/utils/sources/dynamic_vec.move)
 
 # Dangling Coins
 

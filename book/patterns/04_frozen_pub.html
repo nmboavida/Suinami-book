@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Dangling Coins - The Suinami</title>
+        <title>Frozen Publisher - The Suinami book</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/dangling_objects.html" class="active"><strong aria-hidden="true">1.3.</strong> Dangling Coins</a></li><li class="chapter-item expanded "><a href="../topics/vector.html"><strong aria-hidden="true">1.4.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/dynamic_vec.html"><strong aria-hidden="true">1.5.</strong> Dynamic Vectors</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/transferrable_dfs.html"><strong aria-hidden="true">2.4.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/map_reduce.html"><strong aria-hidden="true">2.5.</strong> Map-Reduce</a></li><li class="chapter-item expanded "><a href="../patterns/frozen_pub.html"><strong aria-hidden="true">2.6.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/on_chain_auth.html"><strong aria-hidden="true">2.7.</strong> On-Chain Auth</a></li><li class="chapter-item expanded "><a href="../patterns/guided_pt.html"><strong aria-hidden="true">2.8.</strong> Guided Programmable Transactions</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/00_mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/01_move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/02_events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/03_vector.html"><strong aria-hidden="true">1.3.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/04_dangling_objects.html"><strong aria-hidden="true">1.4.</strong> Dangling Coins</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/00_mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/01_wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/02_hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/03_rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/04_frozen_pub.html" class="active"><strong aria-hidden="true">2.4.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/05_transferable_dfs.html"><strong aria-hidden="true">2.5.</strong> Transferable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/06_map_reduce.html"><strong aria-hidden="true">2.6.</strong> Map-Reduce</a></li></ol></li><li class="chapter-item expanded "><a href="../data_structures/00_mod.html"><strong aria-hidden="true">3.</strong> Advanced Data Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data_structures/01_dynamic_vec.html"><strong aria-hidden="true">3.1.</strong> Dynamic Vectors</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -141,7 +141,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">The Suinami</h1>
+                    <h1 class="menu-title">The Suinami book</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -175,61 +175,161 @@
                     <main>
                         <p>Associated readings:</p>
 <ul>
-<li><a href="https://docs.sui.io/concepts/dynamic-fields">Sui Docs: Dynamic Fields</a></li>
+<li><a href="https://examples.sui.io/patterns/hot-potato.html">Sui Move by Example: Hot Potato</a></li>
+<li><a href="https://examples.sui.io/basics/publisher.html">Move by Example: Publisher</a></li>
+<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/permissions/sources/permissions/frozen_publisher.move">OriginByte: Frozen Publisher</a></li>
+<li><a href="https://github.com/nmboavida/suinami-book/blob/main/examples/sources/frozen_pub.move">Examples: Frozen Publisher</a></li>
 </ul>
-<h1 id="dangling-coins"><a class="header" href="#dangling-coins">Dangling Coins</a></h1>
-<p>In the Sui blockchain, an object with dynamic fields can be deleted, even if those fields are not deleted with it. Once the object is deleted, all its dynamic fields become unreachable for future transactions, in other words they become dangling objects. This is the case no matter if these field values are equipped with the 'drop' ability or not.</p>
-<p>This is especially problematic if the object concerned has some real-world value such as <code>Coin&lt;T&gt;</code>. take the following example:</p>
+<h1 id="frozen-publisher"><a class="header" href="#frozen-publisher">Frozen Publisher</a></h1>
+<blockquote>
+<p>The Publisher Object in Sui confers authority to the publisher, in other words, to the one deploying the contract on-chain. With it developers can create priviledged entrypoints of which only the holder of the <code>Publisher</code> object can call. The <code>Publisher</code> along with its <code>package</code> module is essentially used to verify if a type <code>T</code> is part of a module or package associated with the <code>Publisher</code> object.</p>
+</blockquote>
+<p>The <code>Publisher</code> pattern is a powerful permissioning pattern in Sui Move, and its use case can be seen in the Sui Display standard.</p>
+<blockquote>
+<p>The Sui Object Display standard functions as a template engine, facilitating the management of how an object is represented off-chain through on-chain mechanisms. This standard allows for the integration of an object's data into a template string, offering flexibility in the selection of fields to include.</p>
+</blockquote>
+<p>One challenge that arises with it however is when using wrapper types <code>Wrapper&lt;T&gt;</code>, in that it not possible for a type <code>T</code> to define its own display if its wrapped by <code>Wrapper&lt;T&gt;</code>. The is because the outer type take precedence over the inner type.</p>
+<p>We introduce the idea of a <code>FrozenPublisher</code> which can be used by the wrapper module to allow for the publisher of <code>T</code> to define its own display of <code>Wrapper&lt;T&gt;</code>. In other words it allows the publisher of the type <code>Wrapper</code> to delegate to the type <code>T</code>. This way, the inner type <code>T</code> has the necessary degrees of freedom to define its display.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>module examples::dangling_coin {
-    use sui::coin;
-    use sui::sui::SUI;
-    use sui::dynamic_field as df;
+</span>module ob_permissions::frozen_publisher {
+    // ...
+
+    struct FrozenPublisher has key {
+        id: UID,
+        inner: Publisher,
+    }
+
+    // ...
+
+    public fun freeze_from_otw&lt;OTW: drop&gt;(otw: OTW, ctx: &amp;mut TxContext) {
+        public_freeze_object(new(package::claim(otw, ctx), ctx));
+    }
+
+    // ...
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Say that want to create a wrapper type <code>Wrapper&lt;T&gt;</code> which allows other types to instantiate it:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module examples::export_display {
+    use std::string;
+    use sui::display::{Self, Display};
     use sui::object::{Self, UID};
+    use sui::tx_context::TxContext;
+    use ob_permissions::frozen_publisher::{Self, FrozenPublisher};
+    use ob_permissions::witness::{Witness as DelegatedWitness};
+
+    struct Witness has drop {}
+
+    struct Wrapper&lt;T: key + store&gt; has key, store {
+        id: UID,
+        inner: T
+    }
+
+    public fun new&lt;T: key + store&gt;(inner: T, ctx: &amp;mut TxContext): Wrapper&lt;T&gt; {
+        Wrapper { id: object::new(ctx), inner }
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>We can then add a function that lets the inner type witnesses export their inner display:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module examples::export_display {
+    // ...
+
+    // === Display standard ===
+
+    /// Creates a new `Display` with some default settings.
+    public fun new_display&lt;T: key + store&gt;(
+        _witness: DelegatedWitness&lt;T&gt;,
+        pub: &amp;FrozenPublisher,
+        ctx: &amp;mut TxContext,
+    ): Display&lt;Wrapper&lt;T&gt;&gt; {
+        let display =
+            frozen_publisher::new_display&lt;Witness, Wrapper&lt;T&gt;&gt;(Witness {}, pub, ctx);
+
+        display::add(&amp;mut display, string::utf8(b&quot;type&quot;), string::utf8(b&quot;Wrapper&quot;));
+
+        display
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>We can then create a <code>FrozenPublisher</code> and freeze it:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module examples::export_display {
+    fun init(otw: TEST_WRAPPED_DISPLAY, ctx: &amp;mut TxContext) {
+        // ...
+
+        frozen_publisher::freeze_from_otw(otw, ctx(&amp;mut scenario));
+
+        // ...
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>This allows others developers that come along and create their inner types <code>T</code> and create their display for <code>Wrapper&lt;T&gt;</code> as shown in the test code below:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test_only]
+module examples::test_wrapped_display {
+    use std::string::utf8;
+    use sui::object::UID;
+    use sui::transfer;
+    use sui::display;
     use sui::test_scenario::{Self, ctx};
+    use ob_permissions::frozen_publisher::{Self, FrozenPublisher};
+    use ob_permissions::witness;
 
-    const SOME_ADDRESS: address = @0x1;
-    const USER: address = @0x2;
+    use examples::export_display;
 
-    struct SomeObject has key, store {
+    // One Time Witness
+    struct TEST_WRAPPED_DISPLAY has drop {}
+
+    // Witness for authentication
+    struct Witness has drop {}
+
+    struct InnerType has key, store {
         id: UID,
     }
 
-    fun burn_obj(obj: SomeObject) {
-        let SomeObject { id } = obj;
-        object::delete(id);
-    }
+    const WRAPPER_PUBLISHER_ADDR: address = @0x1;
+    const INNER_PUBLISHER_ADDR: address = @0x2;
 
     #[test]
-    fun dangling_coin() {
-        let scenario = test_scenario::begin(SOME_ADDRESS);
-        let some_obj = SomeObject {
-            id: object::new(ctx(&amp;mut scenario)),
-        };
+    fun create_wrapped_display() {
+        let scenario = test_scenario::begin(WRAPPER_PUBLISHER_ADDR);
 
-        let sui_coins = coin::mint_for_testing&lt;SUI&gt;(10_000, ctx(&amp;mut scenario));
+        frozen_publisher::freeze_from_otw(TEST_WRAPPED_DISPLAY {}, ctx(&amp;mut scenario));
 
-        df::add(&amp;mut some_obj.id, 1, sui_coins);
+        test_scenario::next_tx(&amp;mut scenario, INNER_PUBLISHER_ADDR);
 
-        burn_obj(some_obj);
+        let dw = witness::from_witness&lt;InnerType, Witness&gt;(Witness {});
+        
+        let frozen_pub = test_scenario::take_immutable&lt;FrozenPublisher&gt;(&amp;scenario);
 
+        let inner_display = export_display::new_display(dw, &amp;frozen_pub, ctx(&amp;mut scenario));
+
+        display::add(&amp;mut inner_display, utf8(b&quot;name&quot;), utf8(b&quot;InnerType&quot;));
+        display::add(&amp;mut inner_display, utf8(b&quot;description&quot;), utf8(b&quot;This is the inner display for Wrapper&lt;InnerType&gt;&quot;));
+
+        transfer::public_transfer(inner_display, INNER_PUBLISHER_ADDR);
+
+        test_scenario::return_immutable(frozen_pub);
         test_scenario::end(scenario);
     }
-
 }
 <span class="boring">}</span></code></pre></pre>
-<p>This code does in fact compile and the test passes. In other words, in this test case, 10_000 SUI coins have become unreachable. We recommend developers to always be extra cautious when burning object that have dynamic fields such that validations are put in place to prevent them from being burned in case valueable assets are held dynamically in it.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../topics/events.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../patterns/03_rolling_hot_potato.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../topics/vector.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../patterns/05_transferable_dfs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -239,11 +339,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../topics/events.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../patterns/03_rolling_hot_potato.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../topics/vector.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../patterns/05_transferable_dfs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

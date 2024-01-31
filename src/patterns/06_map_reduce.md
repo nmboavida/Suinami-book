@@ -1,10 +1,13 @@
+- [Suinamic Book: Transferable DFs](05_transferable_dfs.md)
+- [Examples: Map-Reduce](https://github.com/nmboavida/suinami-book/blob/main/examples/sources/map_reduce.move)
+
 # Map-Reduce
 
 Map Reduce is a pattern inspired in a Big Data pattern initially developed by the Hadoop framework and is a programming model that processes large data sets by dividing the work into two phases: the Map phase, which applies operations on individual or chunks of data, and the Reduce phase, which performs a final aggregation operation.
 
 But how does this relate to Sui?
 
-In Sui, operations on Single Writer Objects are fully parallelizable whereas operations on Shared Objects need to go through full consensus. With the Sui Map-Reduce pattern we can levage SWO transactions to add tens if not hundreds of thousands of objects to a Shared Object whilst having most transactions being parallelized. We do this by leveraging the Transferrable Dynamic Fields pattern discussed previously.
+In Sui, operations on Single Writer Objects are fully parallelizable whereas operations on Shared Objects need to go through full consensus. With the Sui Map-Reduce pattern we can levage SWO transactions to add tens if not hundreds of thousands of objects to a Shared Object whilst having most transactions being parallelized. We do this by leveraging the Transferable Dynamic Fields pattern discussed previously.
 
 Lets start with an example of two objects that represent the same abstraction, though one is private and the other one is shared:
 

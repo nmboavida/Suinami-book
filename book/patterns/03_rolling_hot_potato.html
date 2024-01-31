@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Dynamic Vectors - The Suinami</title>
+        <title>Rolling Hot Potato - The Suinami book</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/dangling_objects.html"><strong aria-hidden="true">1.3.</strong> Dangling Coins</a></li><li class="chapter-item expanded "><a href="../topics/vector.html"><strong aria-hidden="true">1.4.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/dynamic_vec.html" class="active"><strong aria-hidden="true">1.5.</strong> Dynamic Vectors</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/rolling_hot_potato.html"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/transferrable_dfs.html"><strong aria-hidden="true">2.4.</strong> Transferrable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/map_reduce.html"><strong aria-hidden="true">2.5.</strong> Map-Reduce</a></li><li class="chapter-item expanded "><a href="../patterns/frozen_pub.html"><strong aria-hidden="true">2.6.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/on_chain_auth.html"><strong aria-hidden="true">2.7.</strong> On-Chain Auth</a></li><li class="chapter-item expanded "><a href="../patterns/guided_pt.html"><strong aria-hidden="true">2.8.</strong> Guided Programmable Transactions</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../topics/00_mod.html"><strong aria-hidden="true">1.</strong> Loose Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topics/01_move_toml.html"><strong aria-hidden="true">1.1.</strong> Upgrades & Deployments</a></li><li class="chapter-item expanded "><a href="../topics/02_events.html"><strong aria-hidden="true">1.2.</strong> Events</a></li><li class="chapter-item expanded "><a href="../topics/03_vector.html"><strong aria-hidden="true">1.3.</strong> vector[] syntax</a></li><li class="chapter-item expanded "><a href="../topics/04_dangling_objects.html"><strong aria-hidden="true">1.4.</strong> Dangling Coins</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns/00_mod.html"><strong aria-hidden="true">2.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/01_wit_delegated.html"><strong aria-hidden="true">2.1.</strong> Delegated Witness</a></li><li class="chapter-item expanded "><a href="../patterns/02_hot_potato_wrapper.html"><strong aria-hidden="true">2.2.</strong> Hot Potato Wrapper</a></li><li class="chapter-item expanded "><a href="../patterns/03_rolling_hot_potato.html" class="active"><strong aria-hidden="true">2.3.</strong> Rolling Hot Potato</a></li><li class="chapter-item expanded "><a href="../patterns/04_frozen_pub.html"><strong aria-hidden="true">2.4.</strong> Frozen Publisher</a></li><li class="chapter-item expanded "><a href="../patterns/05_transferable_dfs.html"><strong aria-hidden="true">2.5.</strong> Transferable Dynamic-Fields</a></li><li class="chapter-item expanded "><a href="../patterns/06_map_reduce.html"><strong aria-hidden="true">2.6.</strong> Map-Reduce</a></li></ol></li><li class="chapter-item expanded "><a href="../data_structures/00_mod.html"><strong aria-hidden="true">3.</strong> Advanced Data Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data_structures/01_dynamic_vec.html"><strong aria-hidden="true">3.1.</strong> Dynamic Vectors</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -141,7 +141,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">The Suinami</h1>
+                    <h1 class="menu-title">The Suinami book</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -175,78 +175,156 @@
                     <main>
                         <p>Associated readings:</p>
 <ul>
-<li><a href="https://docs.sui.io/concepts/dynamic-fields">Sui Docs: Dynamic Fields</a></li>
-<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/utils/sources/dynamic_vec.move">OriginByte Utils: Dynamic Vector</a></li>
+<li><a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks">Sui Docs: Programmable Transactions</a></li>
+<li><a href="https://examples.sui.io/patterns/hot-potato.html">Sui Move by Example: Hot Potato</a></li>
+<li><a href="https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/request/sources/request/request.move">OriginByte: Request Hot Potato</a></li>
+<li><a href="https://github.com/nmboavida/suinami-book/blob/main/examples/sources/rolling_hot_potato.move">Examples: Rolling Hot Potato</a></li>
 </ul>
-<h1 id="dynamic-vectors"><a class="header" href="#dynamic-vectors">Dynamic Vectors</a></h1>
-<p>In the Sui blockchain, dynamic fields are a flexible feature allowing users to add, modify, or remove fields from blockchain objects on-the-fly.</p>
-<p>These fields can be named arbitrarily and can store heterogeneous values, offering more versatility compared to fixed fields defined at the time of module publication. There are two types: 'fields' that can store any value but make wrapped objects inaccessible by external tools, and 'object fields' that must store objects but remain accessible by their ID.</p>
-<p>Dynamic fields are great because they serve as an abstraction for unbounded object scalability and extendibility. An example of scalability is the object type <code>TableVec</code> which allows us to create an arbitrarily long vector.</p>
+<h1 id="rolling-hot-potato"><a class="header" href="#rolling-hot-potato">Rolling Hot Potato</a></h1>
+<p>As stated in the previous chapter, in Sui, a hot potato is an object without abilities, and that therefore must be consumed in the same transactional batch that is has been created in (since it does not have drop ability it must be burned by the contract that declared its type). This is a very useful pattern because it allows developers to enforce that a certain chain of programmable calls ought to be executed, otherwise leading to the transaction batch failing. This pattern became extremely powerful especially since the introduction of Programmable Transactions.</p>
+<p>Following the introduction of Programmable Transactions the Rolling Hot Potato pattern as been introduced by Mysten Labs and Originbyte in collaboration during the development of the Kiosk.</p>
+<p>Below follows a generic implementation which seves as a way of validating that a set of actions has been taken. Since hot potatoes need to be consumed at the end of the Programmable Transactions Batch, smart contract developers can force clients to perform a particular set of actions given a genesis action.</p>
+<p>The module can be found in OriginByte <a href="https://github.com/Origin-Byte/nft-protocol/tree/main/contracts/request">Request</a> package and consists of three core objects:</p>
+<ul>
+<li><code>Policy&lt;P&gt;</code> is the object that registers the rules enforced for the policy <code>P</code>, as well configuration state associated to each rule;</li>
+<li><code>PolicyCap</code> is a capability object that gives managerial access for a given policy object</li>
+<li><code>RequestBody&lt;P&gt;</code> is the inner body of a hot-potato object that contains the receipts collected by performing the enforced actions, as well as the metata associated to them as well as the policy resolution logic. <code>RequestBody&lt;P&gt;</code> is meant to be wrapped by a hot-potato object, but is itself a hot-potato.</li>
+</ul>
+<p>Any developer can implement their logic on top of these generic objects in order to build their own chain of required actions. An example goes as follows:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>struct TableVec&lt;phantom Element: store&gt; has store {
-    /// The contents of the table vector.
-    contents: Table&lt;u64, Element&gt;,
-}
-<span class="boring">}</span></code></pre></pre>
-<h2 id="runtime-hit"><a class="header" href="#runtime-hit">Runtime hit</a></h2>
-<p>One trade-off when using dynamic fields to scale your objects in size is that your application will suffer a runtime hit. This is fine for most cases, but for perfomance critical applications you can use a dynamic vector from the OriginByte library:</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>struct DynVec&lt;Element&gt; has store {
-    vec_0: vector&lt;Element&gt;,
-    vecs: UID,
-    current_chunk: u64,
-    tip_length: u64,
-    total_length: u64,
-    limit: u64,
-}
-<span class="boring">}</span></code></pre></pre>
-<p>This abstraction combines the best of both worlds, the runtime performance of static fields, and the scalability of dynamic fields. In a nutshell, <code>DynVec</code> loads the tip of the entire vector into a static field vector, allowing <code>push_back</code> and <code>pop_back</code> operations to be more perfomant. When popping an element from the vector, when the the sub-vector tip gets exhausted we load the next chunk to the static vector.</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>public fun pop_back&lt;Element: store&gt;(
-    v: &amp;mut DynVec&lt;Element&gt;,
-): Element {
-    // This only occurs when it has no elements
-    assert!(v.tip_length != 0, 0);
+</span>module examples::request_policy {
+    use sui::object::{Self, ID};
+    use sui::tx_context::TxContext;
+    use ob_request::request::{Self, RequestBody, Policy, PolicyCap};
 
-    let elem = if (v.tip_length == 1) {
-        remove_chunk(v)
-    } else {
-        pop_element_from_chunk(v)
-    };
+    // === Errors ===
 
-    elem
+    const EPolicyMismatch: u64 = 1;
+
+    // === Structs ===
+
+    /// Witness for initating a policy
+    struct AUTH_REQ has drop {}
+
+    /// Rolling Hot Potato
+    struct AuthRequest {
+        policy_id: ID,
+
+        // .. other fields ..
+
+        inner: RequestBody&lt;AUTH_REQ&gt;
+    }
+
+    /// Construct a new `Request` hot potato which requires an
+    /// approving action from the policy creator to be destroyed / resolved.
+    public fun new(
+        policy: &amp;Policy&lt;AUTH_REQ&gt;, ctx: &amp;mut TxContext,
+    ): AuthRequest {
+        AuthRequest {
+            policy_id: object::id(policy),
+            inner: request::new(ctx),
+        }
+    }
+
+    public fun init_policy(ctx: &amp;mut TxContext): (Policy&lt;AUTH_REQ&gt;, PolicyCap) {
+        // Policy creation is gated using the Witness Pattern
+        request::new_policy(AUTH_REQ {}, ctx)
+    }
+
+    /// Adds a `Receipt` to the `Request`, unblocking the request and
+    /// confirming that the policy requirements are satisfied.
+    public fun add_receipt&lt;Rule: drop&gt;(self: &amp;mut AuthRequest, rule: Rule) {
+        request::add_receipt(&amp;mut self.inner, &amp;rule);
+    }
+
+    // No need for witness protection as this is admin only endpoint,
+    // protected by the `PolicyCap`. The type `Rule` is a type marker for
+    // a given rule defined in an external contract
+    public entry fun enforce&lt;Rule: drop&gt;(
+        policy: &amp;mut Policy&lt;AUTH_REQ&gt;, cap: &amp;PolicyCap,
+    ) {
+        request::enforce_rule_no_state&lt;AUTH_REQ, Rule&gt;(policy, cap);
+    }
+
+    public fun confirm(self: AuthRequest, policy: &amp;Policy&lt;AUTH_REQ&gt;) {
+        let AuthRequest {
+            policy_id,
+            inner,
+        } = self;
+        assert!(policy_id == object::id(policy), EPolicyMismatch);
+        request::confirm(inner, policy);
+    }
 }
 <span class="boring">}</span></code></pre></pre>
-<p>Conversely, when we push elements to the back of the vector, when the sub-vector tip gets full, we move it to a dynamic field and instantiate a new static vector.</p>
+<p>We can now build a pipeline of required actions such that:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>public fun push_back&lt;Element: store&gt;(
-    v: &amp;mut DynVec&lt;Element&gt;,
-    elem: Element,
-) {
-    // If the tip is maxed out, create a new vector and add it there
-    if (v.tip_length == v.limit) {
-        insert_chunk(v, elem);
-    } else {
-        push_element_to_chunk(v, elem);
-    };
-}
+</span>// ...
+
+// User performs all required actions
+policy_actions::action_a(&amp;mut request);
+policy_actions::action_b(&amp;mut request);
+policy_actions::action_c(&amp;mut request);
+
+// The request hot potato can now be safely destroyed
+request_policy::confirm(request, &amp;policy);
 <span class="boring">}</span></code></pre></pre>
-<p>To create a dynamic vector you can simply call the <code>empty</code> constructor function and passing a limit which defines the capacity of each vector chunk.</p>
+<p>In other words, if the caller does not perform action A, B and C, the transaction will fail.</p>
+<p>In order for these three actions to be required by the policy, their respective contracts need to export a function which has to be called by the owner of the policy:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>/// Create an empty dynamic vector.
-public fun empty&lt;Element: store&gt;(limit: u64, ctx: &amp;mut TxContext): DynVec&lt;Element&gt; {
-    DynVec {
-        vec_0: vector::empty(),
-        vecs: object::new(ctx),
-        current_chunk: 0,
-        tip_length: 0,
-        total_length: 0,
-        limit,
+</span>// ...
+
+// Admin enforces rules A, B and C
+request_policy::enforce&lt;RuleA&gt;(&amp;mut policy, &amp;cap);
+request_policy::enforce&lt;RuleB&gt;(&amp;mut policy, &amp;cap);
+request_policy::enforce&lt;RuleC&gt;(&amp;mut policy, &amp;cap);
+<span class="boring">}</span></code></pre></pre>
+<p>Actions can then be added from other contracts or modules:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>module examples::policy_actions {
+    use sui::tx_context::TxContext;
+    use ob_request::request::Policy;
+
+    use examples::request_policy::{Self, AuthRequest, AUTH_REQ};
+
+    struct RuleA has drop {} // Witness and Type marker for Rule A
+    struct RuleB has drop {} // Witness and Type marker for Rule B
+    struct RuleC has drop {} // Witness and Type marker for Rule C
+
+    public fun genesis_action(
+        policy: &amp;Policy&lt;AUTH_REQ&gt;, ctx: &amp;mut TxContext,
+    ): AuthRequest {
+        request_policy::new(policy, ctx)
+    }
+
+    /// Performs a given action A
+    public fun action_a(
+        req: &amp;mut AuthRequest,
+    ) {
+        // .. Performe some action ..
+
+        request_policy::add_receipt(req, RuleA {})
+    }
+    
+    /// Performs a given action B
+    public fun action_b(
+        req: &amp;mut AuthRequest,
+    ) {
+        // .. Performe some action ..
+
+        request_policy::add_receipt(req, RuleB {})
+    }
+    
+    /// Performs a given action C
+    public fun action_c(
+        req: &amp;mut AuthRequest,
+    ) {
+        // .. Performe some action ..
+
+        request_policy::add_receipt(req, RuleC {})
     }
 }
 <span class="boring">}</span></code></pre></pre>
@@ -255,11 +333,11 @@ public fun empty&lt;Element: store&gt;(limit: u64, ctx: &amp;mut TxContext): Dyn
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../topics/vector.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../patterns/02_hot_potato_wrapper.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../patterns/mod.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../patterns/04_frozen_pub.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -269,11 +347,11 @@ public fun empty&lt;Element: store&gt;(limit: u64, ctx: &amp;mut TxContext): Dyn
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../topics/vector.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../patterns/02_hot_potato_wrapper.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../patterns/mod.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../patterns/04_frozen_pub.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

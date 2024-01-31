@@ -1,12 +1,14 @@
 Associated readings:
 - [Sui Docs: Programmable Transactions](https://docs.sui.io/concepts/transactions/prog-txn-blocks)
 - [Sui Move by Example: Hot Potato](https://examples.sui.io/patterns/hot-potato.html)
+- [OriginByte: Request Hot Potato](https://github.com/Origin-Byte/nft-protocol/blob/main/contracts/request/sources/request/request.move)
+- [Examples: Rolling Hot Potato](https://github.com/nmboavida/suinami-book/blob/main/examples/sources/rolling_hot_potato.move)
 
 # Rolling Hot Potato
 
-As stated in the previous chapter, in Sui, a hot potato is an object without abilities, and that therefore must be consumed in the same transactional batch that is has been created in (since it does not have drop ability it must be burned by the contract that declared its type). This is a very useful pattern because it allows developers to enforce that a certain chain of programmable calls ought be executed, otherwise leading to the transaction batch failing. This pattern became extremely powerful especially since the introduction of Programmable Transactions.
+As stated in the previous chapter, in Sui, a hot potato is an object without abilities, and that therefore must be consumed in the same transactional batch that is has been created in (since it does not have drop ability it must be burned by the contract that declared its type). This is a very useful pattern because it allows developers to enforce that a certain chain of programmable calls ought to be executed, otherwise leading to the transaction batch failing. This pattern became extremely powerful especially since the introduction of Programmable Transactions.
 
-Following the introduction of Programmable Transactions the Rolling Hot Potato pattern as been introduced by Mysten Labs and Originbyte in collaboration throughout the development of the Kiosk.
+Following the introduction of Programmable Transactions the Rolling Hot Potato pattern as been introduced by Mysten Labs and Originbyte in collaboration during the development of the Kiosk.
 
 Below follows a generic implementation which seves as a way of validating that a set of actions has been taken. Since hot potatoes need to be consumed at the end of the Programmable Transactions Batch, smart contract developers can force clients to perform a particular set of actions given a genesis action.
 
