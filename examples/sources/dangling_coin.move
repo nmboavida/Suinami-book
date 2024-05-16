@@ -6,7 +6,6 @@ module examples::dangling_coin {
     use sui::test_scenario::{Self, ctx};
 
     const SOME_ADDRESS: address = @0x1;
-    const USER: address = @0x2;
 
     struct SomeObject has key, store {
         id: UID,
