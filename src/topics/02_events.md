@@ -1,6 +1,7 @@
 Associated readings:
 - [Sui Docs: Using Events](https://docs.sui.io/guides/developer/sui-101/using-events)
 - [Sui Move by Example: Events](https://examples.sui.io/basics/events.html)
+- [Examples: Event Wrapper](https://github.com/nmboavida/suinami-book/blob/main/examples/sources/events.move)
 
 # Events
 
