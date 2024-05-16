@@ -14,6 +14,7 @@
   * [Frozen Publisher](patterns/04_frozen_pub.md)
   * [Transferable Dynamic-Fields](patterns/05_transferable_dfs.md)
   * [Map-Reduce](patterns/06_map_reduce.md)
+  * [On-Chain Events](patterns/07_onchain_events.md)
   <!-- * [On-Chain Auth](patterns/on_chain_auth.md)
   * [Guided Programmable Transactions](patterns/guided_pt.md) -->
 * [Advanced Data Structures](data_structures/00_mod.md)
