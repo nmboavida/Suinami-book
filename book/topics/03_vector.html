@@ -174,19 +174,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="vector-syntax"><a class="header" href="#vector-syntax">vector[] syntax</a></h1>
-<p>Vectors are a pretty standard structure in Move. To initiate a vector you would normally write:</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>let my_vec = vector::empty();
-vector::append(&amp;mut my_vec, 1);
-vector::append(&amp;mut my_vec, 2);
-vector::append(&amp;mut my_vec, 3);
-<span class="boring">}</span></code></pre></pre>
-<p>To make it more ergonomic, you can use the <code>vector[]</code> syntax as follows:</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>let my_vec = vector[1, 2, 3];
-<span class="boring">}</span></code></pre></pre>
 
                     </main>
 
